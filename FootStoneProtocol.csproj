@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="zeroc.ice.net" Version="3.7.1" />
+    <PackageReference Include="zeroc.icebuilder.msbuild" Version="5.0.4" />
+    <Compile Update="generated\Player.cs">
+      <SliceCompileSource>Player.ice</SliceCompileSource>
+    </Compile>
+    <Compile Update="generated\Session.cs">
+      <SliceCompileSource>Session.ice</SliceCompileSource>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup />
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy  /e /y .\bin\Debug\netstandard2.0\FootStoneProtocol.dll  ..\FootStoneUnity\Assets\Plugins" />
+  </Target>
+
+</Project>
