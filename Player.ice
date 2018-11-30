@@ -37,6 +37,10 @@ module FootStone
 			ItemList items;
 		};
 
+		interface PlayerPush
+		{
+			void hpChanged(int hp);
+		}
 
 		interface Player
 		{
@@ -45,7 +49,12 @@ module FootStone
 
 			["amd"] void setPlayerName(string playerId,string name)
 				throws PlayerNotExsit;
+
+			["amd"] void addPush(string playerId,PlayerPush* playerPush)
+				throws PlayerNotExsit;
     
 		};
+
+	
 	};
 };

@@ -1,1 +1,2 @@
-xcopy  /e /y .\bin\Debug\netstandard2.0\FootStoneProtocol.dll  ..\FootStoneUnity\Assets\Plugins
+xcopy  /e /y .\bin\Debug\netstandard2.0\FootStone.Protocol.dll  ..\FootStoneUnity\Assets\Plugins
+pause

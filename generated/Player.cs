@@ -670,6 +670,21 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        public partial interface PlayerPush : Ice.Object, PlayerPushOperations_
+        {
+        }
+
+        [_System.Runtime.InteropServices.ComVisible(false)]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial interface Player : Ice.Object, PlayerOperations_
         {
         }
@@ -681,10 +696,16 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        public delegate void Callback_PlayerPush_hpChanged();
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public delegate void Callback_Player_getPlayerInfo(PlayerInfo ret);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public delegate void Callback_Player_setPlayerName();
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        public delegate void Callback_Player_addPush();
     }
 }
 
@@ -692,6 +713,22 @@ namespace FootStone
 {
     namespace GrainInterfaces
     {
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        public interface PlayerPushPrx : Ice.ObjectPrx
+        {
+            void hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext());
+
+            _System.Threading.Tasks.Task hpChangedAsync(int hp, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+
+            Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext());
+
+            Ice.AsyncResult begin_hpChanged(int hp, Ice.AsyncCallback callback, object cookie);
+
+            Ice.AsyncResult begin_hpChanged(int hp, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+
+            void end_hpChanged(Ice.AsyncResult asyncResult);
+        }
+
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public interface PlayerPrx : Ice.ObjectPrx
         {
@@ -718,6 +755,18 @@ namespace FootStone
             Ice.AsyncResult begin_setPlayerName(string playerId, string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
             void end_setPlayerName(Ice.AsyncResult asyncResult);
+
+            void addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+
+            _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+
+            Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+
+            Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
+
+            Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+
+            void end_addPush(Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -727,6 +776,13 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        public interface PlayerPushOperations_
+        {
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            void hpChanged(int hp, Ice.Current current = null);
+        }
+
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public interface PlayerOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
@@ -734,6 +790,9 @@ namespace FootStone
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.Current current = null);
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.Current current = null);
         }
     }
 }
@@ -781,6 +840,249 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
+        public sealed class PlayerPushPrxHelper : Ice.ObjectPrxHelperBase, PlayerPushPrx
+        {
+            public PlayerPushPrxHelper()
+            {
+            }
+
+            public PlayerPushPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            {
+            }
+
+            #region Synchronous operations
+
+            public void hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext())
+            {
+                try
+                {
+                    _iceI_hpChangedAsync(hp, context, null, _System.Threading.CancellationToken.None, true).Wait();
+                }
+                catch(_System.AggregateException ex_)
+                {
+                    throw ex_.InnerException;
+                }
+            }
+
+            #endregion
+
+            #region Async Task operations
+
+            public _System.Threading.Tasks.Task hpChangedAsync(int hp, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            {
+                return _iceI_hpChangedAsync(hp, context, progress, cancel, false);
+            }
+
+            private _System.Threading.Tasks.Task _iceI_hpChangedAsync(int iceP_hp, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                _iceI_hpChanged(iceP_hp, context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _hpChanged_name = "hpChanged";
+
+            private void _iceI_hpChanged(int iceP_hp, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<object>(completed);
+                outAsync.invoke(
+                    _hpChanged_name,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
+                    context,
+                    synchronous,
+                    write: (Ice.OutputStream ostr) =>
+                    {
+                        ostr.writeInt(iceP_hp);
+                    });
+            }
+
+            #endregion
+
+            #region Asynchronous operations
+
+            public Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext())
+            {
+                return begin_hpChanged(hp, context, null, null, false);
+            }
+
+            public Ice.AsyncResult begin_hpChanged(int hp, Ice.AsyncCallback callback, object cookie)
+            {
+                return begin_hpChanged(hp, new Ice.OptionalContext(), callback, cookie, false);
+            }
+
+            public Ice.AsyncResult begin_hpChanged(int hp, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            {
+                return begin_hpChanged(hp, context, callback, cookie, false);
+            }
+
+            public void end_hpChanged(Ice.AsyncResult asyncResult)
+            {
+                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _hpChanged_name);
+                ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+            }
+
+            private Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int iceP_hp, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            {
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_PlayerPush_hpChanged, object>(
+                    (Callback_PlayerPush_hpChanged cb, object ret) =>
+                    {
+                        if(cb != null)
+                        {
+                            cb.Invoke();
+                        }
+                    },
+                    this, _hpChanged_name, cookie, completedCallback);
+                _iceI_hpChanged(iceP_hp, context, synchronous, completed);
+                return completed;
+            }
+
+            #endregion
+
+            #region Checked and unchecked cast operations
+
+            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                PlayerPushPrx r = b as PlayerPushPrx;
+                if((r == null) && b.ice_isA(ice_staticId()))
+                {
+                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    h.iceCopyFrom(b);
+                    r = h;
+                }
+                return r;
+            }
+
+            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                PlayerPushPrx r = b as PlayerPushPrx;
+                if((r == null) && b.ice_isA(ice_staticId(), ctx))
+                {
+                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    h.iceCopyFrom(b);
+                    r = h;
+                }
+                return r;
+            }
+
+            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, string f)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                Ice.ObjectPrx bb = b.ice_facet(f);
+                try
+                {
+                    if(bb.ice_isA(ice_staticId()))
+                    {
+                        PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                        h.iceCopyFrom(bb);
+                        return h;
+                    }
+                }
+                catch(Ice.FacetNotExistException)
+                {
+                }
+                return null;
+            }
+
+            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                Ice.ObjectPrx bb = b.ice_facet(f);
+                try
+                {
+                    if(bb.ice_isA(ice_staticId(), ctx))
+                    {
+                        PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                        h.iceCopyFrom(bb);
+                        return h;
+                    }
+                }
+                catch(Ice.FacetNotExistException)
+                {
+                }
+                return null;
+            }
+
+            public static PlayerPushPrx uncheckedCast(Ice.ObjectPrx b)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                PlayerPushPrx r = b as PlayerPushPrx;
+                if(r == null)
+                {
+                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    h.iceCopyFrom(b);
+                    r = h;
+                }
+                return r;
+            }
+
+            public static PlayerPushPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            {
+                if(b == null)
+                {
+                    return null;
+                }
+                Ice.ObjectPrx bb = b.ice_facet(f);
+                PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                h.iceCopyFrom(bb);
+                return h;
+            }
+
+            private static readonly string[] _ids =
+            {
+                "::FootStone::GrainInterfaces::PlayerPush",
+                "::Ice::Object"
+            };
+
+            public static string ice_staticId()
+            {
+                return _ids[0];
+            }
+
+            #endregion
+
+            #region Marshaling support
+
+            public static void write(Ice.OutputStream ostr, PlayerPushPrx v)
+            {
+                ostr.writeProxy(v);
+            }
+
+            public static PlayerPushPrx read(Ice.InputStream istr)
+            {
+                Ice.ObjectPrx proxy = istr.readProxy();
+                if(proxy != null)
+                {
+                    PlayerPushPrxHelper result = new PlayerPushPrxHelper();
+                    result.iceCopyFrom(proxy);
+                    return result;
+                }
+                return null;
+            }
+
+            #endregion
+        }
+
+        [_System.Runtime.InteropServices.ComVisible(false)]
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        [_System.Serializable]
         public sealed class PlayerPrxHelper : Ice.ObjectPrxHelperBase, PlayerPrx
         {
             public PlayerPrxHelper()
@@ -792,6 +1094,18 @@ namespace FootStone
             }
 
             #region Synchronous operations
+
+            public void addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            {
+                try
+                {
+                    _iceI_addPushAsync(playerId, playerPush, context, null, _System.Threading.CancellationToken.None, true).Wait();
+                }
+                catch(_System.AggregateException ex_)
+                {
+                    throw ex_.InnerException;
+                }
+            }
 
             public PlayerInfo getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext())
             {
@@ -820,6 +1134,51 @@ namespace FootStone
             #endregion
 
             #region Async Task operations
+
+            public _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            {
+                return _iceI_addPushAsync(playerId, playerPush, context, progress, cancel, false);
+            }
+
+            private _System.Threading.Tasks.Task _iceI_addPushAsync(string iceP_playerId, PlayerPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            {
+                iceCheckTwowayOnly(_addPush_name);
+                var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                _iceI_addPush(iceP_playerId, iceP_playerPush, context, synchronous, completed);
+                return completed.Task;
+            }
+
+            private const string _addPush_name = "addPush";
+
+            private void _iceI_addPush(string iceP_playerId, PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            {
+                var outAsync = getOutgoingAsync<object>(completed);
+                outAsync.invoke(
+                    _addPush_name,
+                    Ice.OperationMode.Normal,
+                    Ice.FormatType.DefaultFormat,
+                    context,
+                    synchronous,
+                    write: (Ice.OutputStream ostr) =>
+                    {
+                        ostr.writeString(iceP_playerId);
+                        PlayerPushPrxHelper.write(ostr, iceP_playerPush);
+                    },
+                    userException: (Ice.UserException ex) =>
+                    {
+                        try
+                        {
+                            throw ex;
+                        }
+                        catch(PlayerNotExsit)
+                        {
+                            throw;
+                        }
+                        catch(Ice.UserException)
+                        {
+                        }
+                    });
+            }
 
             public _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
@@ -919,6 +1278,43 @@ namespace FootStone
             #endregion
 
             #region Asynchronous operations
+
+            public Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            {
+                return begin_addPush(playerId, playerPush, context, null, null, false);
+            }
+
+            public Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
+            {
+                return begin_addPush(playerId, playerPush, new Ice.OptionalContext(), callback, cookie, false);
+            }
+
+            public Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            {
+                return begin_addPush(playerId, playerPush, context, callback, cookie, false);
+            }
+
+            public void end_addPush(Ice.AsyncResult asyncResult)
+            {
+                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _addPush_name);
+                ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+            }
+
+            private Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string iceP_playerId, PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            {
+                iceCheckAsyncTwowayOnly(_addPush_name);
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_addPush, object>(
+                    (Callback_Player_addPush cb, object ret) =>
+                    {
+                        if(cb != null)
+                        {
+                            cb.Invoke();
+                        }
+                    },
+                    this, _addPush_name, cookie, completedCallback);
+                _iceI_addPush(iceP_playerId, iceP_playerPush, context, synchronous, completed);
+                return completed;
+            }
 
             public Ice.AsyncResult<Callback_Player_getPlayerInfo> begin_getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext())
             {
@@ -1146,6 +1542,110 @@ namespace FootStone
     {
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+        public abstract class PlayerPushDisp_ : Ice.ObjectImpl, PlayerPush
+        {
+            #region Slice operations
+
+            public abstract void hpChanged(int hp, Ice.Current current = null);
+
+            #endregion
+
+            #region Slice type-related members
+
+            private static readonly string[] _ids =
+            {
+                "::FootStone::GrainInterfaces::PlayerPush",
+                "::Ice::Object"
+            };
+
+            public override bool ice_isA(string s, Ice.Current current = null)
+            {
+                return _System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+            }
+
+            public override string[] ice_ids(Ice.Current current = null)
+            {
+                return _ids;
+            }
+
+            public override string ice_id(Ice.Current current = null)
+            {
+                return _ids[0];
+            }
+
+            public static new string ice_staticId()
+            {
+                return _ids[0];
+            }
+
+            #endregion
+
+            #region Operation dispatch
+
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static _System.Threading.Tasks.Task<Ice.OutputStream>
+            iceD_hpChanged(PlayerPush obj, IceInternal.Incoming inS, Ice.Current current)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
+                var istr = inS.startReadParams();
+                int iceP_hp;
+                iceP_hp = istr.readInt();
+                inS.endReadParams();
+                obj.hpChanged(iceP_hp, current);
+                return inS.setResult(inS.writeEmptyParams());
+            }
+
+            private static readonly string[] _all =
+            {
+                "hpChanged",
+                "ice_id",
+                "ice_ids",
+                "ice_isA",
+                "ice_ping"
+            };
+
+            public override _System.Threading.Tasks.Task<Ice.OutputStream>
+            iceDispatch(IceInternal.Incoming inS, Ice.Current current)
+            {
+                int pos = _System.Array.BinarySearch(_all, current.operation, IceUtilInternal.StringUtil.OrdinalStringComparer);
+                if(pos < 0)
+                {
+                    throw new Ice.OperationNotExistException(current.id, current.facet, current.operation);
+                }
+
+                switch(pos)
+                {
+                    case 0:
+                    {
+                        return iceD_hpChanged(this, inS, current);
+                    }
+                    case 1:
+                    {
+                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    }
+                    case 2:
+                    {
+                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    }
+                    case 3:
+                    {
+                        return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                    }
+                    case 4:
+                    {
+                        return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                    }
+                }
+
+                _System.Diagnostics.Debug.Assert(false);
+                throw new Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            #endregion
+        }
+
+        [_System.Runtime.InteropServices.ComVisible(false)]
+        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public abstract class PlayerDisp_ : Ice.ObjectImpl, Player
         {
             #region Slice operations
@@ -1153,6 +1653,8 @@ namespace FootStone
             public abstract _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.Current current = null);
 
             public abstract _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.Current current = null);
+
+            public abstract _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.Current current = null);
 
             #endregion
 
@@ -1218,8 +1720,23 @@ namespace FootStone
                 return inS.setResultTask(obj.setPlayerNameAsync(iceP_playerId, iceP_name, current));
             }
 
+            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+            public static _System.Threading.Tasks.Task<Ice.OutputStream>
+            iceD_addPush(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            {
+                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
+                var istr = inS.startReadParams();
+                string iceP_playerId;
+                PlayerPushPrx iceP_playerPush;
+                iceP_playerId = istr.readString();
+                iceP_playerPush = PlayerPushPrxHelper.read(istr);
+                inS.endReadParams();
+                return inS.setResultTask(obj.addPushAsync(iceP_playerId, iceP_playerPush, current));
+            }
+
             private static readonly string[] _all =
             {
+                "addPush",
                 "getPlayerInfo",
                 "ice_id",
                 "ice_ids",
@@ -1241,25 +1758,29 @@ namespace FootStone
                 {
                     case 0:
                     {
-                        return iceD_getPlayerInfo(this, inS, current);
+                        return iceD_addPush(this, inS, current);
                     }
                     case 1:
                     {
-                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                        return iceD_getPlayerInfo(this, inS, current);
                     }
                     case 2:
                     {
-                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                     }
                     case 3:
                     {
-                        return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                     }
                     case 4:
                     {
-                        return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                     }
                     case 5:
+                    {
+                        return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                    }
+                    case 6:
                     {
                         return iceD_setPlayerName(this, inS, current);
                     }
