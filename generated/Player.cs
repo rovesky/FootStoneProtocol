@@ -463,6 +463,9 @@ namespace FootStone
             public string name;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public int serverId;
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             public int level;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
@@ -487,10 +490,11 @@ namespace FootStone
             }
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerInfo(string id, string name, int level, PlayerMaster playerMaster, _System.Collections.Generic.List<Item> items)
+            public PlayerInfo(string id, string name, int serverId, int level, PlayerMaster playerMaster, _System.Collections.Generic.List<Item> items)
             {
                 this.id = id;
                 this.name = name;
+                this.serverId = serverId;
                 this.level = level;
                 this.playerMaster = playerMaster;
                 this.items = items;
@@ -518,6 +522,7 @@ namespace FootStone
                 IceInternal.HashUtil.hashAdd(ref h_, "::FootStone::GrainInterfaces::PlayerInfo");
                 IceInternal.HashUtil.hashAdd(ref h_, id);
                 IceInternal.HashUtil.hashAdd(ref h_, name);
+                IceInternal.HashUtil.hashAdd(ref h_, serverId);
                 IceInternal.HashUtil.hashAdd(ref h_, level);
                 IceInternal.HashUtil.hashAdd(ref h_, playerMaster);
                 IceInternal.HashUtil.hashAdd(ref h_, items);
@@ -567,6 +572,10 @@ namespace FootStone
                     {
                         return false;
                     }
+                }
+                if(!this.serverId.Equals(o.serverId))
+                {
+                    return false;
                 }
                 if(!this.level.Equals(o.level))
                 {
@@ -618,6 +627,7 @@ namespace FootStone
             {
                 ostr.writeString(this.id);
                 ostr.writeString(this.name);
+                ostr.writeInt(this.serverId);
                 ostr.writeInt(this.level);
                 this.playerMaster.ice_writeMembers(ostr);
                 ItemListHelper.write(ostr, this.items);
@@ -628,6 +638,7 @@ namespace FootStone
             {
                 this.id = istr.readString();
                 this.name = istr.readString();
+                this.serverId = istr.readInt();
                 this.level = istr.readInt();
                 this.playerMaster.ice_readMembers(istr);
                 this.items = ItemListHelper.read(istr);
@@ -699,13 +710,13 @@ namespace FootStone
         public delegate void Callback_PlayerPush_hpChanged();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_getPlayerInfo(PlayerInfo ret);
+        public delegate void Callback_Player_GetPlayerInfo(PlayerInfo ret);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_setPlayerName();
+        public delegate void Callback_Player_SetPlayerName();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_addPush();
+        public delegate void Callback_Player_AddPush();
     }
 }
 
@@ -732,41 +743,41 @@ namespace FootStone
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public interface PlayerPrx : Ice.ObjectPrx
         {
-            PlayerInfo getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext());
+            PlayerInfo GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Player_getPlayerInfo> begin_getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext());
 
-            Ice.AsyncResult begin_getPlayerInfo(string playerId, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_GetPlayerInfo(Ice.AsyncCallback callback, object cookie);
 
-            Ice.AsyncResult begin_getPlayerInfo(string playerId, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_GetPlayerInfo(Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
-            PlayerInfo end_getPlayerInfo(Ice.AsyncResult asyncResult);
+            PlayerInfo end_GetPlayerInfo(Ice.AsyncResult asyncResult);
 
-            void setPlayerName(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext());
+            void SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Player_setPlayerName> begin_setPlayerName(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            Ice.AsyncResult begin_setPlayerName(string playerId, string name, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_SetPlayerName(string name, Ice.AsyncCallback callback, object cookie);
 
-            Ice.AsyncResult begin_setPlayerName(string playerId, string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_SetPlayerName(string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
-            void end_setPlayerName(Ice.AsyncResult asyncResult);
+            void end_SetPlayerName(Ice.AsyncResult asyncResult);
 
-            void addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+            void AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
 
-            Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
-            void end_addPush(Ice.AsyncResult asyncResult);
+            void end_AddPush(Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -786,13 +797,13 @@ namespace FootStone
         public interface PlayerOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.Current current = null);
+            _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.Current current = null);
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.Current current = null);
+            _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.Current current = null);
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.Current current = null);
+            _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.Current current = null);
         }
     }
 }
@@ -1095,11 +1106,11 @@ namespace FootStone
 
             #region Synchronous operations
 
-            public void addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            public void AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
-                    _iceI_addPushAsync(playerId, playerPush, context, null, _System.Threading.CancellationToken.None, true).Wait();
+                    _iceI_AddPushAsync(playerPush, context, null, _System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch(_System.AggregateException ex_)
                 {
@@ -1107,11 +1118,11 @@ namespace FootStone
                 }
             }
 
-            public PlayerInfo getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext())
+            public PlayerInfo GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
-                    return _iceI_getPlayerInfoAsync(playerId, context, null, _System.Threading.CancellationToken.None, true).Result;
+                    return _iceI_GetPlayerInfoAsync(context, null, _System.Threading.CancellationToken.None, true).Result;
                 }
                 catch(_System.AggregateException ex_)
                 {
@@ -1119,11 +1130,11 @@ namespace FootStone
                 }
             }
 
-            public void setPlayerName(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext())
+            public void SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
-                    _iceI_setPlayerNameAsync(playerId, name, context, null, _System.Threading.CancellationToken.None, true).Wait();
+                    _iceI_SetPlayerNameAsync(name, context, null, _System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch(_System.AggregateException ex_)
                 {
@@ -1135,33 +1146,32 @@ namespace FootStone
 
             #region Async Task operations
 
-            public _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
-                return _iceI_addPushAsync(playerId, playerPush, context, progress, cancel, false);
+                return _iceI_AddPushAsync(playerPush, context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task _iceI_addPushAsync(string iceP_playerId, PlayerPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task _iceI_AddPushAsync(PlayerPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
-                iceCheckTwowayOnly(_addPush_name);
+                iceCheckTwowayOnly(_AddPush_name);
                 var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_addPush(iceP_playerId, iceP_playerPush, context, synchronous, completed);
+                _iceI_AddPush(iceP_playerPush, context, synchronous, completed);
                 return completed.Task;
             }
 
-            private const string _addPush_name = "addPush";
+            private const string _AddPush_name = "AddPush";
 
-            private void _iceI_addPush(string iceP_playerId, PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_AddPush(PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
-                    _addPush_name,
+                    _AddPush_name,
                     Ice.OperationMode.Normal,
                     Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeString(iceP_playerId);
                         PlayerPushPrxHelper.write(ostr, iceP_playerPush);
                     },
                     userException: (Ice.UserException ex) =>
@@ -1180,34 +1190,30 @@ namespace FootStone
                     });
             }
 
-            public _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
-                return _iceI_getPlayerInfoAsync(playerId, context, progress, cancel, false);
+                return _iceI_GetPlayerInfoAsync(context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task<PlayerInfo> _iceI_getPlayerInfoAsync(string iceP_playerId, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task<PlayerInfo> _iceI_GetPlayerInfoAsync(Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
-                iceCheckTwowayOnly(_getPlayerInfo_name);
+                iceCheckTwowayOnly(_GetPlayerInfo_name);
                 var completed = new IceInternal.OperationTaskCompletionCallback<PlayerInfo>(progress, cancel);
-                _iceI_getPlayerInfo(iceP_playerId, context, synchronous, completed);
+                _iceI_GetPlayerInfo(context, synchronous, completed);
                 return completed.Task;
             }
 
-            private const string _getPlayerInfo_name = "getPlayerInfo";
+            private const string _GetPlayerInfo_name = "GetPlayerInfo";
 
-            private void _iceI_getPlayerInfo(string iceP_playerId, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_GetPlayerInfo(_System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<PlayerInfo>(completed);
                 outAsync.invoke(
-                    _getPlayerInfo_name,
+                    _GetPlayerInfo_name,
                     Ice.OperationMode.Idempotent,
                     Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
-                    write: (Ice.OutputStream ostr) =>
-                    {
-                        ostr.writeString(iceP_playerId);
-                    },
                     userException: (Ice.UserException ex) =>
                     {
                         try
@@ -1230,33 +1236,32 @@ namespace FootStone
                     });
             }
 
-            public _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
-                return _iceI_setPlayerNameAsync(playerId, name, context, progress, cancel, false);
+                return _iceI_SetPlayerNameAsync(name, context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task _iceI_setPlayerNameAsync(string iceP_playerId, string iceP_name, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task _iceI_SetPlayerNameAsync(string iceP_name, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
-                iceCheckTwowayOnly(_setPlayerName_name);
+                iceCheckTwowayOnly(_SetPlayerName_name);
                 var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_setPlayerName(iceP_playerId, iceP_name, context, synchronous, completed);
+                _iceI_SetPlayerName(iceP_name, context, synchronous, completed);
                 return completed.Task;
             }
 
-            private const string _setPlayerName_name = "setPlayerName";
+            private const string _SetPlayerName_name = "SetPlayerName";
 
-            private void _iceI_setPlayerName(string iceP_playerId, string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_SetPlayerName(string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
-                    _setPlayerName_name,
+                    _SetPlayerName_name,
                     Ice.OperationMode.Normal,
                     Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeString(iceP_playerId);
                         ostr.writeString(iceP_name);
                     },
                     userException: (Ice.UserException ex) =>
@@ -1279,115 +1284,115 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
             {
-                return begin_addPush(playerId, playerPush, context, null, null, false);
+                return begin_AddPush(playerPush, context, null, null, false);
             }
 
-            public Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
             {
-                return begin_addPush(playerId, playerPush, new Ice.OptionalContext(), callback, cookie, false);
+                return begin_AddPush(playerPush, new Ice.OptionalContext(), callback, cookie, false);
             }
 
-            public Ice.AsyncResult begin_addPush(string playerId, PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
             {
-                return begin_addPush(playerId, playerPush, context, callback, cookie, false);
+                return begin_AddPush(playerPush, context, callback, cookie, false);
             }
 
-            public void end_addPush(Ice.AsyncResult asyncResult)
+            public void end_AddPush(Ice.AsyncResult asyncResult)
             {
-                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _addPush_name);
+                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _AddPush_name);
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Player_addPush> begin_addPush(string iceP_playerId, PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                iceCheckAsyncTwowayOnly(_addPush_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_addPush, object>(
-                    (Callback_Player_addPush cb, object ret) =>
+                iceCheckAsyncTwowayOnly(_AddPush_name);
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_AddPush, object>(
+                    (Callback_Player_AddPush cb, object ret) =>
                     {
                         if(cb != null)
                         {
                             cb.Invoke();
                         }
                     },
-                    this, _addPush_name, cookie, completedCallback);
-                _iceI_addPush(iceP_playerId, iceP_playerPush, context, synchronous, completed);
+                    this, _AddPush_name, cookie, completedCallback);
+                _iceI_AddPush(iceP_playerPush, context, synchronous, completed);
                 return completed;
             }
 
-            public Ice.AsyncResult<Callback_Player_getPlayerInfo> begin_getPlayerInfo(string playerId, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
             {
-                return begin_getPlayerInfo(playerId, context, null, null, false);
+                return begin_GetPlayerInfo(context, null, null, false);
             }
 
-            public Ice.AsyncResult begin_getPlayerInfo(string playerId, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_GetPlayerInfo(Ice.AsyncCallback callback, object cookie)
             {
-                return begin_getPlayerInfo(playerId, new Ice.OptionalContext(), callback, cookie, false);
+                return begin_GetPlayerInfo(new Ice.OptionalContext(), callback, cookie, false);
             }
 
-            public Ice.AsyncResult begin_getPlayerInfo(string playerId, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_GetPlayerInfo(Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
             {
-                return begin_getPlayerInfo(playerId, context, callback, cookie, false);
+                return begin_GetPlayerInfo(context, callback, cookie, false);
             }
 
-            public PlayerInfo end_getPlayerInfo(Ice.AsyncResult asyncResult)
+            public PlayerInfo end_GetPlayerInfo(Ice.AsyncResult asyncResult)
             {
-                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _getPlayerInfo_name);
+                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _GetPlayerInfo_name);
                 var outgoing_ = (IceInternal.OutgoingAsyncT<PlayerInfo>)resultI_.OutgoingAsync;
                 return outgoing_.getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Player_getPlayerInfo> begin_getPlayerInfo(string iceP_playerId, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                iceCheckAsyncTwowayOnly(_getPlayerInfo_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_getPlayerInfo, PlayerInfo>(
-                    (Callback_Player_getPlayerInfo cb, PlayerInfo ret) =>
+                iceCheckAsyncTwowayOnly(_GetPlayerInfo_name);
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_GetPlayerInfo, PlayerInfo>(
+                    (Callback_Player_GetPlayerInfo cb, PlayerInfo ret) =>
                     {
                         if(cb != null)
                         {
                             cb.Invoke(ret);
                         }
                     },
-                    this, _getPlayerInfo_name, cookie, completedCallback);
-                _iceI_getPlayerInfo(iceP_playerId, context, synchronous, completed);
+                    this, _GetPlayerInfo_name, cookie, completedCallback);
+                _iceI_GetPlayerInfo(context, synchronous, completed);
                 return completed;
             }
 
-            public Ice.AsyncResult<Callback_Player_setPlayerName> begin_setPlayerName(string playerId, string name, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext())
             {
-                return begin_setPlayerName(playerId, name, context, null, null, false);
+                return begin_SetPlayerName(name, context, null, null, false);
             }
 
-            public Ice.AsyncResult begin_setPlayerName(string playerId, string name, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_SetPlayerName(string name, Ice.AsyncCallback callback, object cookie)
             {
-                return begin_setPlayerName(playerId, name, new Ice.OptionalContext(), callback, cookie, false);
+                return begin_SetPlayerName(name, new Ice.OptionalContext(), callback, cookie, false);
             }
 
-            public Ice.AsyncResult begin_setPlayerName(string playerId, string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_SetPlayerName(string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
             {
-                return begin_setPlayerName(playerId, name, context, callback, cookie, false);
+                return begin_SetPlayerName(name, context, callback, cookie, false);
             }
 
-            public void end_setPlayerName(Ice.AsyncResult asyncResult)
+            public void end_SetPlayerName(Ice.AsyncResult asyncResult)
             {
-                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _setPlayerName_name);
+                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _SetPlayerName_name);
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Player_setPlayerName> begin_setPlayerName(string iceP_playerId, string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                iceCheckAsyncTwowayOnly(_setPlayerName_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_setPlayerName, object>(
-                    (Callback_Player_setPlayerName cb, object ret) =>
+                iceCheckAsyncTwowayOnly(_SetPlayerName_name);
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_SetPlayerName, object>(
+                    (Callback_Player_SetPlayerName cb, object ret) =>
                     {
                         if(cb != null)
                         {
                             cb.Invoke();
                         }
                     },
-                    this, _setPlayerName_name, cookie, completedCallback);
-                _iceI_setPlayerName(iceP_playerId, iceP_name, context, synchronous, completed);
+                    this, _SetPlayerName_name, cookie, completedCallback);
+                _iceI_SetPlayerName(iceP_name, context, synchronous, completed);
                 return completed;
             }
 
@@ -1650,11 +1655,11 @@ namespace FootStone
         {
             #region Slice operations
 
-            public abstract _System.Threading.Tasks.Task<PlayerInfo> getPlayerInfoAsync(string playerId, Ice.Current current = null);
+            public abstract _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.Current current = null);
 
-            public abstract _System.Threading.Tasks.Task setPlayerNameAsync(string playerId, string name, Ice.Current current = null);
+            public abstract _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.Current current = null);
 
-            public abstract _System.Threading.Tasks.Task addPushAsync(string playerId, PlayerPushPrx playerPush, Ice.Current current = null);
+            public abstract _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.Current current = null);
 
             #endregion
 
@@ -1692,14 +1697,11 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_getPlayerInfo(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_GetPlayerInfo(Player obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, current.mode);
-                var istr = inS.startReadParams();
-                string iceP_playerId;
-                iceP_playerId = istr.readString();
-                inS.endReadParams();
-                return inS.setResultTask<PlayerInfo>(obj.getPlayerInfoAsync(iceP_playerId, current),
+                inS.readEmptyParams();
+                return inS.setResultTask<PlayerInfo>(obj.GetPlayerInfoAsync(current),
                     (ostr, ret) =>
                     {
                         PlayerInfo.ice_write(ostr, ret);
@@ -1708,41 +1710,37 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_setPlayerName(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_SetPlayerName(Player obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_playerId;
                 string iceP_name;
-                iceP_playerId = istr.readString();
                 iceP_name = istr.readString();
                 inS.endReadParams();
-                return inS.setResultTask(obj.setPlayerNameAsync(iceP_playerId, iceP_name, current));
+                return inS.setResultTask(obj.SetPlayerNameAsync(iceP_name, current));
             }
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_addPush(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_AddPush(Player obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                string iceP_playerId;
                 PlayerPushPrx iceP_playerPush;
-                iceP_playerId = istr.readString();
                 iceP_playerPush = PlayerPushPrxHelper.read(istr);
                 inS.endReadParams();
-                return inS.setResultTask(obj.addPushAsync(iceP_playerId, iceP_playerPush, current));
+                return inS.setResultTask(obj.AddPushAsync(iceP_playerPush, current));
             }
 
             private static readonly string[] _all =
             {
-                "addPush",
-                "getPlayerInfo",
+                "AddPush",
+                "GetPlayerInfo",
+                "SetPlayerName",
                 "ice_id",
                 "ice_ids",
                 "ice_isA",
-                "ice_ping",
-                "setPlayerName"
+                "ice_ping"
             };
 
             public override _System.Threading.Tasks.Task<Ice.OutputStream>
@@ -1758,31 +1756,31 @@ namespace FootStone
                 {
                     case 0:
                     {
-                        return iceD_addPush(this, inS, current);
+                        return iceD_AddPush(this, inS, current);
                     }
                     case 1:
                     {
-                        return iceD_getPlayerInfo(this, inS, current);
+                        return iceD_GetPlayerInfo(this, inS, current);
                     }
                     case 2:
                     {
-                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                        return iceD_SetPlayerName(this, inS, current);
                     }
                     case 3:
                     {
-                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                     }
                     case 4:
                     {
-                        return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                     }
                     case 5:
                     {
-                        return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                     }
                     case 6:
                     {
-                        return iceD_setPlayerName(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                     }
                 }
 

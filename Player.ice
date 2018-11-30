@@ -32,6 +32,7 @@ module FootStone
 		{
 			string id;
 			string name;
+			int    serverId;
 			int    level;
 			PlayerMaster  playerMaster;
 			ItemList items;
@@ -44,13 +45,13 @@ module FootStone
 
 		interface Player
 		{
-			["amd"] idempotent PlayerInfo getPlayerInfo(string playerId)
+			["amd"] idempotent PlayerInfo GetPlayerInfo()
 				throws PlayerNotExsit;
 
-			["amd"] void setPlayerName(string playerId,string name)
+			["amd"] void SetPlayerName(string name)
 				throws PlayerNotExsit;
 
-			["amd"] void addPush(string playerId,PlayerPush* playerPush)
+			["amd"] void AddPush(PlayerPush* playerPush)
 				throws PlayerNotExsit;
     
 		};

@@ -22,7 +22,7 @@
   <ItemGroup />
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy  /e /y .\bin\Debug\netstandard2.0\FootStone.Protocol.dll  ..\FootStoneUnity\Assets\Plugins" />
+    <Exec Command="xcopy  /e /y .\bin\Debug\netstandard2.0\FootStone.Protocol.dll  ..\FootStone.Unity\Assets\Plugins" />
   </Target>
 
 </Project>
