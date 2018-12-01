@@ -45,14 +45,9 @@ module FootStone
 
 		interface Player
 		{
-			["amd"] idempotent PlayerInfo GetPlayerInfo()
-				throws PlayerNotExsit;
+			["amd"] idempotent PlayerInfo GetPlayerInfo() throws PlayerNotExsit;
 
-			["amd"] void SetPlayerName(string name)
-				throws PlayerNotExsit;
-
-			["amd"] void AddPush(PlayerPush* playerPush)
-				throws PlayerNotExsit;
+			["amd"] void SetPlayerName(string name)	throws PlayerNotExsit;
     
 		};
 

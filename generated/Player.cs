@@ -714,9 +714,6 @@ namespace FootStone
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public delegate void Callback_Player_SetPlayerName();
-
-        [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_AddPush();
     }
 }
 
@@ -766,18 +763,6 @@ namespace FootStone
             Ice.AsyncResult begin_SetPlayerName(string name, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
             void end_SetPlayerName(Ice.AsyncResult asyncResult);
-
-            void AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
-
-            _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
-
-            Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
-
-            Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
-
-            Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
-
-            void end_AddPush(Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -801,9 +786,6 @@ namespace FootStone
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.Current current = null);
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.Current current = null);
         }
     }
 }
@@ -1106,18 +1088,6 @@ namespace FootStone
 
             #region Synchronous operations
 
-            public void AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
-            {
-                try
-                {
-                    _iceI_AddPushAsync(playerPush, context, null, _System.Threading.CancellationToken.None, true).Wait();
-                }
-                catch(_System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
             public PlayerInfo GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
@@ -1145,50 +1115,6 @@ namespace FootStone
             #endregion
 
             #region Async Task operations
-
-            public _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
-            {
-                return _iceI_AddPushAsync(playerPush, context, progress, cancel, false);
-            }
-
-            private _System.Threading.Tasks.Task _iceI_AddPushAsync(PlayerPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_AddPush_name);
-                var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_AddPush(iceP_playerPush, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _AddPush_name = "AddPush";
-
-            private void _iceI_AddPush(PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<object>(completed);
-                outAsync.invoke(
-                    _AddPush_name,
-                    Ice.OperationMode.Normal,
-                    Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    write: (Ice.OutputStream ostr) =>
-                    {
-                        PlayerPushPrxHelper.write(ostr, iceP_playerPush);
-                    },
-                    userException: (Ice.UserException ex) =>
-                    {
-                        try
-                        {
-                            throw ex;
-                        }
-                        catch(PlayerNotExsit)
-                        {
-                            throw;
-                        }
-                        catch(Ice.UserException)
-                        {
-                        }
-                    });
-            }
 
             public _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
@@ -1283,43 +1209,6 @@ namespace FootStone
             #endregion
 
             #region Asynchronous operations
-
-            public Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
-            {
-                return begin_AddPush(playerPush, context, null, null, false);
-            }
-
-            public Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_AddPush(playerPush, new Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public Ice.AsyncResult begin_AddPush(PlayerPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_AddPush(playerPush, context, callback, cookie, false);
-            }
-
-            public void end_AddPush(Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _AddPush_name);
-                ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
-            }
-
-            private Ice.AsyncResult<Callback_Player_AddPush> begin_AddPush(PlayerPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_AddPush_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_AddPush, object>(
-                    (Callback_Player_AddPush cb, object ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke();
-                        }
-                    },
-                    this, _AddPush_name, cookie, completedCallback);
-                _iceI_AddPush(iceP_playerPush, context, synchronous, completed);
-                return completed;
-            }
 
             public Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
             {
@@ -1659,8 +1548,6 @@ namespace FootStone
 
             public abstract _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.Current current = null);
 
-            public abstract _System.Threading.Tasks.Task AddPushAsync(PlayerPushPrx playerPush, Ice.Current current = null);
-
             #endregion
 
             #region Slice type-related members
@@ -1720,21 +1607,8 @@ namespace FootStone
                 return inS.setResultTask(obj.SetPlayerNameAsync(iceP_name, current));
             }
 
-            [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_AddPush(Player obj, IceInternal.Incoming inS, Ice.Current current)
-            {
-                Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                PlayerPushPrx iceP_playerPush;
-                iceP_playerPush = PlayerPushPrxHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask(obj.AddPushAsync(iceP_playerPush, current));
-            }
-
             private static readonly string[] _all =
             {
-                "AddPush",
                 "GetPlayerInfo",
                 "SetPlayerName",
                 "ice_id",
@@ -1756,29 +1630,25 @@ namespace FootStone
                 {
                     case 0:
                     {
-                        return iceD_AddPush(this, inS, current);
+                        return iceD_GetPlayerInfo(this, inS, current);
                     }
                     case 1:
                     {
-                        return iceD_GetPlayerInfo(this, inS, current);
+                        return iceD_SetPlayerName(this, inS, current);
                     }
                     case 2:
                     {
-                        return iceD_SetPlayerName(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                     }
                     case 3:
                     {
-                        return Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                     }
                     case 4:
                     {
-                        return Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                    }
-                    case 5:
-                    {
                         return Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                     }
-                    case 6:
+                    case 5:
                     {
                         return Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                     }

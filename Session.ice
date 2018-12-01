@@ -17,16 +17,23 @@ module FootStone
 	
 		interface SessionPush
 		{
-			
+			void SessionDestroyed();
 		}
    
 		interface Session
 		{      
-
-			["amd"] void Ping();
-
-			["amd"] void AddPush(SessionPush* playerPush);
-
+		
+		   ["amd"] void AddPush(SessionPush* playerPush);
+		
+			void Destroy();
 		}  
+
+		interface SessionFactory
+		{
+		   
+			Session* CreateSession(string name,string password);
+
+			void Shutdown();
+		}
 	}
 }
