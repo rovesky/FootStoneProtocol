@@ -17,6 +17,9 @@
     <Compile Update="generated\Session.cs">
       <SliceCompileSource>Session.ice</SliceCompileSource>
     </Compile>
+    <Compile Update="generated\Account.cs">
+      <SliceCompileSource>Account.ice</SliceCompileSource>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup />

@@ -7,7 +7,6 @@
 #pragma once
 #include "Player.ice"
 
-//using FootStone.GrainInterfaces;
 
 module FootStone
 {
@@ -29,15 +28,38 @@ module FootStone
 			string account;
 			string password;
 		}
-		
+
+		struct ServerInfo
+		{
+			int    id;
+			string name;
+			int    status;
+		}
+		["clr:generic:List"]sequence<ServerInfo> ServerList;
+
+		struct PlayerShortInfo
+		{
+			string playerId;
+			string name;
+			int    gender;
+			int    modelId;
+		}
+		["clr:generic:List"]sequence<PlayerShortInfo> PlayerList;
+
 		interface Account
 		{
       
 		  ["amd"] void LoginRequest(LoginInfo info) throws AccountException;
 
 		  ["amd"] void RegisterRequest(RegisterInfo info) throws AccountException;
-      
-	      ["amd"] string CreatePlayer(string name,int serverId) throws AccountException;
+
+		  ["amd"] ServerList GetServerListRequest() throws AccountException;
+
+		  ["amd"] PlayerList GetPlayerListRequest(int serverId) throws AccountException;
+		
+	  	  ["amd"] void SelectPlayerRequest(string playerId) throws AccountException;		
+		
+	      ["amd"] string CreatePlayerRequest(string name,int serverId) throws AccountException;
 
 		}
     

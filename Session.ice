@@ -7,14 +7,12 @@
 #pragma once
 #include "Player.ice"
 
-//using FootStone.GrainInterfaces;
 
 module FootStone
 {
 	module GrainInterfaces
 	{   
-	
-	
+		
 		interface SessionPush
 		{
 			void SessionDestroyed();
