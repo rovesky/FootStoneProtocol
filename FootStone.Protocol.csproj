@@ -11,21 +11,26 @@
   <ItemGroup>
     <PackageReference Include="zeroc.ice.net" Version="3.7.1" />
     <PackageReference Include="zeroc.icebuilder.msbuild" Version="5.0.4" />
-    <Compile Update="generated\Player.cs">
-      <SliceCompileSource>Player.ice</SliceCompileSource>
-    </Compile>
-    <Compile Update="generated\Session.cs">
-      <SliceCompileSource>Session.ice</SliceCompileSource>
-    </Compile>
     <Compile Update="generated\Account.cs">
-      <SliceCompileSource>Account.ice</SliceCompileSource>
-    </Compile>
-    <Compile Update="generated\RoleMaster.cs">
-      <SliceCompileSource>RoleMaster.ice</SliceCompileSource>
+      <SliceCompileSource>slice\Account.ice</SliceCompileSource>
     </Compile>
     <Compile Update="generated\Common.cs">
-      <SliceCompileSource>Common.ice</SliceCompileSource>
+      <SliceCompileSource>slice\Common.ice</SliceCompileSource>
     </Compile>
+    <Compile Update="generated\Player.cs">
+      <SliceCompileSource>slice\Player.ice</SliceCompileSource>
+    </Compile>
+    <Compile Update="generated\RoleMaster.cs">
+      <SliceCompileSource>slice\RoleMaster.ice</SliceCompileSource>
+    </Compile>
+    <Compile Update="generated\Session.cs">
+      <SliceCompileSource>slice\Session.ice</SliceCompileSource>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="generated\" />
+    <Folder Include="slice\" />
   </ItemGroup>
 
   <ItemGroup />
