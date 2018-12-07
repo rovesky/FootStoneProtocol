@@ -6,13 +6,14 @@
 
 #pragma once
 
+#include "common.ice"
+#include "RoleMaster.ice"
+
 module FootStone
 {
 	module GrainInterfaces
 	{
-		exception PlayerNotExsit 
-		{
-		};
+	
 
 		struct Item
 		{
@@ -23,27 +24,24 @@ module FootStone
 
 		["clr:generic:List"]sequence<Item> ItemList;
 		
-		struct PlayerMaster
-		{
-			int hp;
-			int mp;
-		};
+	
 		struct PlayerInfo
 		{
 			string id;
 			string name;
 			int    serverId;
 			int    level;
-			PlayerMaster  playerMaster;
+			
+			RoleMaster roleMaster;
 			ItemList items;
 		};
 
-		interface PlayerPush
+		interface IPlayerPush
 		{
 			void hpChanged(int hp);
 		}
 
-		interface Player
+		interface IPlayer
 		{
 			["amd"] idempotent PlayerInfo GetPlayerInfo() throws PlayerNotExsit;
 

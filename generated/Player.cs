@@ -31,112 +31,6 @@ namespace FootStone
 {
     namespace GrainInterfaces
     {
-        [_System.Runtime.InteropServices.ComVisible(false)]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [_System.Serializable]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class PlayerNotExsit : Ice.UserException
-        {
-            #region Constructors
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerNotExsit()
-            {
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerNotExsit(_System.Exception ex) : base(ex)
-            {
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerNotExsit(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-            }
-
-            #endregion
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public override string ice_id()
-            {
-                return "::FootStone::GrainInterfaces::PlayerNotExsit";
-            }
-
-            #region Object members
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                IceInternal.HashUtil.hashAdd(ref h_, "::FootStone::GrainInterfaces::PlayerNotExsit");
-                return h_;
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public override bool Equals(object other)
-            {
-                if(other == null)
-                {
-                    return false;
-                }
-                if(object.ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                PlayerNotExsit o = other as PlayerNotExsit;
-                if(o == null)
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static bool operator==(PlayerNotExsit lhs, PlayerNotExsit rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static bool operator!=(PlayerNotExsit lhs, PlayerNotExsit rhs)
-            {
-                return !Equals(lhs, rhs);
-            }
-
-            #endregion
-
-            #region Marshaling support
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            protected override void iceWriteImpl(Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice("::FootStone::GrainInterfaces::PlayerNotExsit", -1, true);
-                ostr_.endSlice();
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            protected override void iceReadImpl(Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                istr_.endSlice();
-            }
-
-            #endregion
-        }
-
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -333,125 +227,6 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         [_System.Serializable]
-        public partial struct PlayerMaster
-        {
-            #region Slice data members
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public int hp;
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public int mp;
-
-            #endregion
-
-            partial void ice_initialize();
-
-            #region Constructor
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerMaster(int hp, int mp)
-            {
-                this.hp = hp;
-                this.mp = mp;
-                ice_initialize();
-            }
-
-            #endregion
-
-            #region Object members
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                IceInternal.HashUtil.hashAdd(ref h_, "::FootStone::GrainInterfaces::PlayerMaster");
-                IceInternal.HashUtil.hashAdd(ref h_, hp);
-                IceInternal.HashUtil.hashAdd(ref h_, mp);
-                return h_;
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public override bool Equals(object other)
-            {
-                if(!(other is PlayerMaster))
-                {
-                    return false;
-                }
-                PlayerMaster o = (PlayerMaster)other;
-                if(!this.hp.Equals(o.hp))
-                {
-                    return false;
-                }
-                if(!this.mp.Equals(o.mp))
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static bool operator==(PlayerMaster lhs, PlayerMaster rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static bool operator!=(PlayerMaster lhs, PlayerMaster rhs)
-            {
-                return !Equals(lhs, rhs);
-            }
-
-            #endregion
-
-            #region Marshaling support
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public void ice_writeMembers(Ice.OutputStream ostr)
-            {
-                ostr.writeInt(this.hp);
-                ostr.writeInt(this.mp);
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public void ice_readMembers(Ice.InputStream istr)
-            {
-                this.hp = istr.readInt();
-                this.mp = istr.readInt();
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static void ice_write(Ice.OutputStream ostr, PlayerMaster v)
-            {
-                v.ice_writeMembers(ostr);
-            }
-
-            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public static PlayerMaster ice_read(Ice.InputStream istr)
-            {
-                var v = new PlayerMaster();
-                v.ice_readMembers(istr);
-                return v;
-            }
-
-            #endregion
-        }
-
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [_System.Serializable]
         public partial class PlayerInfo : _System.ICloneable
         {
             #region Slice data members
@@ -469,7 +244,7 @@ namespace FootStone
             public int level;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerMaster playerMaster;
+            public RoleMaster roleMaster;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             public _System.Collections.Generic.List<Item> items;
@@ -485,18 +260,18 @@ namespace FootStone
             {
                 this.id = "";
                 this.name = "";
-                this.playerMaster = new PlayerMaster();
+                this.roleMaster = new RoleMaster();
                 ice_initialize();
             }
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerInfo(string id, string name, int serverId, int level, PlayerMaster playerMaster, _System.Collections.Generic.List<Item> items)
+            public PlayerInfo(string id, string name, int serverId, int level, RoleMaster roleMaster, _System.Collections.Generic.List<Item> items)
             {
                 this.id = id;
                 this.name = name;
                 this.serverId = serverId;
                 this.level = level;
-                this.playerMaster = playerMaster;
+                this.roleMaster = roleMaster;
                 this.items = items;
                 ice_initialize();
             }
@@ -524,7 +299,7 @@ namespace FootStone
                 IceInternal.HashUtil.hashAdd(ref h_, name);
                 IceInternal.HashUtil.hashAdd(ref h_, serverId);
                 IceInternal.HashUtil.hashAdd(ref h_, level);
-                IceInternal.HashUtil.hashAdd(ref h_, playerMaster);
+                IceInternal.HashUtil.hashAdd(ref h_, roleMaster);
                 IceInternal.HashUtil.hashAdd(ref h_, items);
                 return h_;
             }
@@ -581,7 +356,7 @@ namespace FootStone
                 {
                     return false;
                 }
-                if(!this.playerMaster.Equals(o.playerMaster))
+                if(!this.roleMaster.Equals(o.roleMaster))
                 {
                     return false;
                 }
@@ -629,7 +404,7 @@ namespace FootStone
                 ostr.writeString(this.name);
                 ostr.writeInt(this.serverId);
                 ostr.writeInt(this.level);
-                this.playerMaster.ice_writeMembers(ostr);
+                this.roleMaster.ice_writeMembers(ostr);
                 ItemListHelper.write(ostr, this.items);
             }
 
@@ -640,7 +415,7 @@ namespace FootStone
                 this.name = istr.readString();
                 this.serverId = istr.readInt();
                 this.level = istr.readInt();
-                this.playerMaster.ice_readMembers(istr);
+                this.roleMaster.ice_readMembers(istr);
                 this.items = ItemListHelper.read(istr);
             }
 
@@ -681,7 +456,7 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial interface PlayerPush : Ice.Object, PlayerPushOperations_
+        public partial interface IPlayerPush : Ice.Object, IPlayerPushOperations_
         {
         }
 
@@ -696,7 +471,7 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial interface Player : Ice.Object, PlayerOperations_
+        public partial interface IPlayer : Ice.Object, IPlayerOperations_
         {
         }
     }
@@ -707,13 +482,13 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_PlayerPush_hpChanged();
+        public delegate void Callback_IPlayerPush_hpChanged();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_GetPlayerInfo(PlayerInfo ret);
+        public delegate void Callback_IPlayer_GetPlayerInfo(PlayerInfo ret);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Player_SetPlayerName();
+        public delegate void Callback_IPlayer_SetPlayerName();
     }
 }
 
@@ -722,13 +497,13 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface PlayerPushPrx : Ice.ObjectPrx
+        public interface IPlayerPushPrx : Ice.ObjectPrx
         {
             void hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext());
 
             _System.Threading.Tasks.Task hpChangedAsync(int hp, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_IPlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_hpChanged(int hp, Ice.AsyncCallback callback, object cookie);
 
@@ -738,13 +513,13 @@ namespace FootStone
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface PlayerPrx : Ice.ObjectPrx
+        public interface IPlayerPrx : Ice.ObjectPrx
         {
             PlayerInfo GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext());
 
             _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_IPlayer_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_GetPlayerInfo(Ice.AsyncCallback callback, object cookie);
 
@@ -756,7 +531,7 @@ namespace FootStone
 
             _System.Threading.Tasks.Task SetPlayerNameAsync(string name, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_IPlayer_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_SetPlayerName(string name, Ice.AsyncCallback callback, object cookie);
 
@@ -772,14 +547,14 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface PlayerPushOperations_
+        public interface IPlayerPushOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             void hpChanged(int hp, Ice.Current current = null);
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface PlayerOperations_
+        public interface IPlayerOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             _System.Threading.Tasks.Task<PlayerInfo> GetPlayerInfoAsync(Ice.Current current = null);
@@ -833,13 +608,13 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
-        public sealed class PlayerPushPrxHelper : Ice.ObjectPrxHelperBase, PlayerPushPrx
+        public sealed class IPlayerPushPrxHelper : Ice.ObjectPrxHelperBase, IPlayerPushPrx
         {
-            public PlayerPushPrxHelper()
+            public IPlayerPushPrxHelper()
             {
             }
 
-            public PlayerPushPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            public IPlayerPushPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -894,7 +669,7 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_IPlayerPush_hpChanged> begin_hpChanged(int hp, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_hpChanged(hp, context, null, null, false);
             }
@@ -915,10 +690,10 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_PlayerPush_hpChanged> begin_hpChanged(int iceP_hp, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_IPlayerPush_hpChanged> begin_hpChanged(int iceP_hp, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_PlayerPush_hpChanged, object>(
-                    (Callback_PlayerPush_hpChanged cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_IPlayerPush_hpChanged, object>(
+                    (Callback_IPlayerPush_hpChanged cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -934,39 +709,39 @@ namespace FootStone
 
             #region Checked and unchecked cast operations
 
-            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b)
+            public static IPlayerPushPrx checkedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPushPrx r = b as PlayerPushPrx;
+                IPlayerPushPrx r = b as IPlayerPushPrx;
                 if((r == null) && b.ice_isA(ice_staticId()))
                 {
-                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static IPlayerPushPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPushPrx r = b as PlayerPushPrx;
+                IPlayerPushPrx r = b as IPlayerPushPrx;
                 if((r == null) && b.ice_isA(ice_staticId(), ctx))
                 {
-                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, string f)
+            public static IPlayerPushPrx checkedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
@@ -977,7 +752,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId()))
                     {
-                        PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                        IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -988,7 +763,7 @@ namespace FootStone
                 return null;
             }
 
-            public static PlayerPushPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static IPlayerPushPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
@@ -999,7 +774,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId(), ctx))
                     {
-                        PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                        IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -1010,37 +785,37 @@ namespace FootStone
                 return null;
             }
 
-            public static PlayerPushPrx uncheckedCast(Ice.ObjectPrx b)
+            public static IPlayerPushPrx uncheckedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPushPrx r = b as PlayerPushPrx;
+                IPlayerPushPrx r = b as IPlayerPushPrx;
                 if(r == null)
                 {
-                    PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                    IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPushPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            public static IPlayerPushPrx uncheckedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
                     return null;
                 }
                 Ice.ObjectPrx bb = b.ice_facet(f);
-                PlayerPushPrxHelper h = new PlayerPushPrxHelper();
+                IPlayerPushPrxHelper h = new IPlayerPushPrxHelper();
                 h.iceCopyFrom(bb);
                 return h;
             }
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::PlayerPush",
+                "::FootStone::GrainInterfaces::IPlayerPush",
                 "::Ice::Object"
             };
 
@@ -1053,17 +828,17 @@ namespace FootStone
 
             #region Marshaling support
 
-            public static void write(Ice.OutputStream ostr, PlayerPushPrx v)
+            public static void write(Ice.OutputStream ostr, IPlayerPushPrx v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static PlayerPushPrx read(Ice.InputStream istr)
+            public static IPlayerPushPrx read(Ice.InputStream istr)
             {
                 Ice.ObjectPrx proxy = istr.readProxy();
                 if(proxy != null)
                 {
-                    PlayerPushPrxHelper result = new PlayerPushPrxHelper();
+                    IPlayerPushPrxHelper result = new IPlayerPushPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1076,13 +851,13 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
-        public sealed class PlayerPrxHelper : Ice.ObjectPrxHelperBase, PlayerPrx
+        public sealed class IPlayerPrxHelper : Ice.ObjectPrxHelperBase, IPlayerPrx
         {
-            public PlayerPrxHelper()
+            public IPlayerPrxHelper()
             {
             }
 
-            public PlayerPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            public IPlayerPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -1210,7 +985,7 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_IPlayer_GetPlayerInfo> begin_GetPlayerInfo(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_GetPlayerInfo(context, null, null, false);
             }
@@ -1232,11 +1007,11 @@ namespace FootStone
                 return outgoing_.getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Player_GetPlayerInfo> begin_GetPlayerInfo(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_IPlayer_GetPlayerInfo> begin_GetPlayerInfo(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
                 iceCheckAsyncTwowayOnly(_GetPlayerInfo_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_GetPlayerInfo, PlayerInfo>(
-                    (Callback_Player_GetPlayerInfo cb, PlayerInfo ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_IPlayer_GetPlayerInfo, PlayerInfo>(
+                    (Callback_IPlayer_GetPlayerInfo cb, PlayerInfo ret) =>
                     {
                         if(cb != null)
                         {
@@ -1248,7 +1023,7 @@ namespace FootStone
                 return completed;
             }
 
-            public Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_IPlayer_SetPlayerName> begin_SetPlayerName(string name, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_SetPlayerName(name, context, null, null, false);
             }
@@ -1269,11 +1044,11 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Player_SetPlayerName> begin_SetPlayerName(string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_IPlayer_SetPlayerName> begin_SetPlayerName(string iceP_name, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
                 iceCheckAsyncTwowayOnly(_SetPlayerName_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Player_SetPlayerName, object>(
-                    (Callback_Player_SetPlayerName cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_IPlayer_SetPlayerName, object>(
+                    (Callback_IPlayer_SetPlayerName cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -1289,39 +1064,39 @@ namespace FootStone
 
             #region Checked and unchecked cast operations
 
-            public static PlayerPrx checkedCast(Ice.ObjectPrx b)
+            public static IPlayerPrx checkedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPrx r = b as PlayerPrx;
+                IPlayerPrx r = b as IPlayerPrx;
                 if((r == null) && b.ice_isA(ice_staticId()))
                 {
-                    PlayerPrxHelper h = new PlayerPrxHelper();
+                    IPlayerPrxHelper h = new IPlayerPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static IPlayerPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPrx r = b as PlayerPrx;
+                IPlayerPrx r = b as IPlayerPrx;
                 if((r == null) && b.ice_isA(ice_staticId(), ctx))
                 {
-                    PlayerPrxHelper h = new PlayerPrxHelper();
+                    IPlayerPrxHelper h = new IPlayerPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPrx checkedCast(Ice.ObjectPrx b, string f)
+            public static IPlayerPrx checkedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
@@ -1332,7 +1107,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId()))
                     {
-                        PlayerPrxHelper h = new PlayerPrxHelper();
+                        IPlayerPrxHelper h = new IPlayerPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -1343,7 +1118,7 @@ namespace FootStone
                 return null;
             }
 
-            public static PlayerPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static IPlayerPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
@@ -1354,7 +1129,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId(), ctx))
                     {
-                        PlayerPrxHelper h = new PlayerPrxHelper();
+                        IPlayerPrxHelper h = new IPlayerPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -1365,37 +1140,37 @@ namespace FootStone
                 return null;
             }
 
-            public static PlayerPrx uncheckedCast(Ice.ObjectPrx b)
+            public static IPlayerPrx uncheckedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                PlayerPrx r = b as PlayerPrx;
+                IPlayerPrx r = b as IPlayerPrx;
                 if(r == null)
                 {
-                    PlayerPrxHelper h = new PlayerPrxHelper();
+                    IPlayerPrxHelper h = new IPlayerPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static PlayerPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            public static IPlayerPrx uncheckedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
                     return null;
                 }
                 Ice.ObjectPrx bb = b.ice_facet(f);
-                PlayerPrxHelper h = new PlayerPrxHelper();
+                IPlayerPrxHelper h = new IPlayerPrxHelper();
                 h.iceCopyFrom(bb);
                 return h;
             }
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::Player",
+                "::FootStone::GrainInterfaces::IPlayer",
                 "::Ice::Object"
             };
 
@@ -1408,17 +1183,17 @@ namespace FootStone
 
             #region Marshaling support
 
-            public static void write(Ice.OutputStream ostr, PlayerPrx v)
+            public static void write(Ice.OutputStream ostr, IPlayerPrx v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static PlayerPrx read(Ice.InputStream istr)
+            public static IPlayerPrx read(Ice.InputStream istr)
             {
                 Ice.ObjectPrx proxy = istr.readProxy();
                 if(proxy != null)
                 {
-                    PlayerPrxHelper result = new PlayerPrxHelper();
+                    IPlayerPrxHelper result = new IPlayerPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1436,7 +1211,7 @@ namespace FootStone
     {
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public abstract class PlayerPushDisp_ : Ice.ObjectImpl, PlayerPush
+        public abstract class IPlayerPushDisp_ : Ice.ObjectImpl, IPlayerPush
         {
             #region Slice operations
 
@@ -1448,7 +1223,7 @@ namespace FootStone
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::PlayerPush",
+                "::FootStone::GrainInterfaces::IPlayerPush",
                 "::Ice::Object"
             };
 
@@ -1478,7 +1253,7 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_hpChanged(PlayerPush obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_hpChanged(IPlayerPush obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
@@ -1540,7 +1315,7 @@ namespace FootStone
 
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public abstract class PlayerDisp_ : Ice.ObjectImpl, Player
+        public abstract class IPlayerDisp_ : Ice.ObjectImpl, IPlayer
         {
             #region Slice operations
 
@@ -1554,7 +1329,7 @@ namespace FootStone
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::Player",
+                "::FootStone::GrainInterfaces::IPlayer",
                 "::Ice::Object"
             };
 
@@ -1584,7 +1359,7 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_GetPlayerInfo(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_GetPlayerInfo(IPlayer obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Idempotent, current.mode);
                 inS.readEmptyParams();
@@ -1597,7 +1372,7 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_SetPlayerName(Player obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_SetPlayerName(IPlayer obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();

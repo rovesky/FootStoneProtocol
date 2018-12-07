@@ -20,6 +20,12 @@
     <Compile Update="generated\Account.cs">
       <SliceCompileSource>Account.ice</SliceCompileSource>
     </Compile>
+    <Compile Update="generated\RoleMaster.cs">
+      <SliceCompileSource>RoleMaster.ice</SliceCompileSource>
+    </Compile>
+    <Compile Update="generated\Common.cs">
+      <SliceCompileSource>Common.ice</SliceCompileSource>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup />

@@ -42,7 +42,7 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial interface SessionPush : Ice.Object, SessionPushOperations_
+        public partial interface ISessionPush : Ice.Object, ISessionPushOperations_
         {
         }
 
@@ -57,7 +57,7 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial interface Session : Ice.Object, SessionOperations_
+        public partial interface ISession : Ice.Object, ISessionOperations_
         {
         }
 
@@ -72,7 +72,7 @@ namespace FootStone
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial interface SessionFactory : Ice.Object, SessionFactoryOperations_
+        public partial interface ISessionFactory : Ice.Object, ISessionFactoryOperations_
         {
         }
     }
@@ -83,19 +83,19 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_SessionPush_SessionDestroyed();
+        public delegate void Callback_ISessionPush_SessionDestroyed();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Session_AddPush();
+        public delegate void Callback_ISession_AddPush();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_Session_Destroy();
+        public delegate void Callback_ISession_Destroy();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_SessionFactory_CreateSession(SessionPrx ret);
+        public delegate void Callback_ISessionFactory_CreateSession(ISessionPrx ret);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_SessionFactory_Shutdown();
+        public delegate void Callback_ISessionFactory_Shutdown();
     }
 }
 
@@ -104,13 +104,13 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionPushPrx : Ice.ObjectPrx
+        public interface ISessionPushPrx : Ice.ObjectPrx
         {
             void SessionDestroyed(Ice.OptionalContext context = new Ice.OptionalContext());
 
             _System.Threading.Tasks.Task SessionDestroyedAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_SessionPush_SessionDestroyed> begin_SessionDestroyed(Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_ISessionPush_SessionDestroyed> begin_SessionDestroyed(Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_SessionDestroyed(Ice.AsyncCallback callback, object cookie);
 
@@ -120,17 +120,17 @@ namespace FootStone
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionPrx : Ice.ObjectPrx
+        public interface ISessionPrx : Ice.ObjectPrx
         {
-            void AddPush(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+            void AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task AddPushAsync(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task AddPushAsync(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Session_AddPush> begin_AddPush(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_ISession_AddPush> begin_AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            Ice.AsyncResult begin_AddPush(SessionPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_AddPush(ISessionPushPrx playerPush, Ice.AsyncCallback callback, object cookie);
 
-            Ice.AsyncResult begin_AddPush(SessionPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
+            Ice.AsyncResult begin_AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
             void end_AddPush(Ice.AsyncResult asyncResult);
 
@@ -138,7 +138,7 @@ namespace FootStone
 
             _System.Threading.Tasks.Task DestroyAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_Session_Destroy> begin_Destroy(Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_ISession_Destroy> begin_Destroy(Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_Destroy(Ice.AsyncCallback callback, object cookie);
 
@@ -148,25 +148,25 @@ namespace FootStone
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionFactoryPrx : Ice.ObjectPrx
+        public interface ISessionFactoryPrx : Ice.ObjectPrx
         {
-            SessionPrx CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext());
+            ISessionPrx CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task<SessionPrx> CreateSessionAsync(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task<ISessionPrx> CreateSessionAsync(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_SessionFactory_CreateSession> begin_CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_ISessionFactory_CreateSession> begin_CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_CreateSession(string name, string password, Ice.AsyncCallback callback, object cookie);
 
             Ice.AsyncResult begin_CreateSession(string name, string password, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
-            SessionPrx end_CreateSession(Ice.AsyncResult asyncResult);
+            ISessionPrx end_CreateSession(Ice.AsyncResult asyncResult);
 
             void Shutdown(Ice.OptionalContext context = new Ice.OptionalContext());
 
             _System.Threading.Tasks.Task ShutdownAsync(Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
-            Ice.AsyncResult<Callback_SessionFactory_Shutdown> begin_Shutdown(Ice.OptionalContext context = new Ice.OptionalContext());
+            Ice.AsyncResult<Callback_ISessionFactory_Shutdown> begin_Shutdown(Ice.OptionalContext context = new Ice.OptionalContext());
 
             Ice.AsyncResult begin_Shutdown(Ice.AsyncCallback callback, object cookie);
 
@@ -182,27 +182,27 @@ namespace FootStone
     namespace GrainInterfaces
     {
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionPushOperations_
+        public interface ISessionPushOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             void SessionDestroyed(Ice.Current current = null);
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionOperations_
+        public interface ISessionOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            _System.Threading.Tasks.Task AddPushAsync(SessionPushPrx playerPush, Ice.Current current = null);
+            _System.Threading.Tasks.Task AddPushAsync(ISessionPushPrx playerPush, Ice.Current current = null);
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             void Destroy(Ice.Current current = null);
         }
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public interface SessionFactoryOperations_
+        public interface ISessionFactoryOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            SessionPrx CreateSession(string name, string password, Ice.Current current = null);
+            ISessionPrx CreateSession(string name, string password, Ice.Current current = null);
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             void Shutdown(Ice.Current current = null);
@@ -217,13 +217,13 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
-        public sealed class SessionPushPrxHelper : Ice.ObjectPrxHelperBase, SessionPushPrx
+        public sealed class ISessionPushPrxHelper : Ice.ObjectPrxHelperBase, ISessionPushPrx
         {
-            public SessionPushPrxHelper()
+            public ISessionPushPrxHelper()
             {
             }
 
-            public SessionPushPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            public ISessionPushPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -274,7 +274,7 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_SessionPush_SessionDestroyed> begin_SessionDestroyed(Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_ISessionPush_SessionDestroyed> begin_SessionDestroyed(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_SessionDestroyed(context, null, null, false);
             }
@@ -295,10 +295,10 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_SessionPush_SessionDestroyed> begin_SessionDestroyed(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_ISessionPush_SessionDestroyed> begin_SessionDestroyed(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionPush_SessionDestroyed, object>(
-                    (Callback_SessionPush_SessionDestroyed cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_ISessionPush_SessionDestroyed, object>(
+                    (Callback_ISessionPush_SessionDestroyed cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -314,39 +314,39 @@ namespace FootStone
 
             #region Checked and unchecked cast operations
 
-            public static SessionPushPrx checkedCast(Ice.ObjectPrx b)
+            public static ISessionPushPrx checkedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPushPrx r = b as SessionPushPrx;
+                ISessionPushPrx r = b as ISessionPushPrx;
                 if((r == null) && b.ice_isA(ice_staticId()))
                 {
-                    SessionPushPrxHelper h = new SessionPushPrxHelper();
+                    ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPushPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionPushPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPushPrx r = b as SessionPushPrx;
+                ISessionPushPrx r = b as ISessionPushPrx;
                 if((r == null) && b.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionPushPrxHelper h = new SessionPushPrxHelper();
+                    ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPushPrx checkedCast(Ice.ObjectPrx b, string f)
+            public static ISessionPushPrx checkedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
@@ -357,7 +357,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId()))
                     {
-                        SessionPushPrxHelper h = new SessionPushPrxHelper();
+                        ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -368,7 +368,7 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionPushPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionPushPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
@@ -379,7 +379,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId(), ctx))
                     {
-                        SessionPushPrxHelper h = new SessionPushPrxHelper();
+                        ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -390,37 +390,37 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionPushPrx uncheckedCast(Ice.ObjectPrx b)
+            public static ISessionPushPrx uncheckedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPushPrx r = b as SessionPushPrx;
+                ISessionPushPrx r = b as ISessionPushPrx;
                 if(r == null)
                 {
-                    SessionPushPrxHelper h = new SessionPushPrxHelper();
+                    ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPushPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            public static ISessionPushPrx uncheckedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
                     return null;
                 }
                 Ice.ObjectPrx bb = b.ice_facet(f);
-                SessionPushPrxHelper h = new SessionPushPrxHelper();
+                ISessionPushPrxHelper h = new ISessionPushPrxHelper();
                 h.iceCopyFrom(bb);
                 return h;
             }
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::SessionPush",
+                "::FootStone::GrainInterfaces::ISessionPush",
                 "::Ice::Object"
             };
 
@@ -433,17 +433,17 @@ namespace FootStone
 
             #region Marshaling support
 
-            public static void write(Ice.OutputStream ostr, SessionPushPrx v)
+            public static void write(Ice.OutputStream ostr, ISessionPushPrx v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static SessionPushPrx read(Ice.InputStream istr)
+            public static ISessionPushPrx read(Ice.InputStream istr)
             {
                 Ice.ObjectPrx proxy = istr.readProxy();
                 if(proxy != null)
                 {
-                    SessionPushPrxHelper result = new SessionPushPrxHelper();
+                    ISessionPushPrxHelper result = new ISessionPushPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -456,19 +456,19 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
-        public sealed class SessionPrxHelper : Ice.ObjectPrxHelperBase, SessionPrx
+        public sealed class ISessionPrxHelper : Ice.ObjectPrxHelperBase, ISessionPrx
         {
-            public SessionPrxHelper()
+            public ISessionPrxHelper()
             {
             }
 
-            public SessionPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            public ISessionPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
             #region Synchronous operations
 
-            public void AddPush(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            public void AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
@@ -496,12 +496,12 @@ namespace FootStone
 
             #region Async Task operations
 
-            public _System.Threading.Tasks.Task AddPushAsync(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task AddPushAsync(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
                 return _iceI_AddPushAsync(playerPush, context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task _iceI_AddPushAsync(SessionPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task _iceI_AddPushAsync(ISessionPushPrx iceP_playerPush, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
                 var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
                 _iceI_AddPush(iceP_playerPush, context, synchronous, completed);
@@ -510,7 +510,7 @@ namespace FootStone
 
             private const string _AddPush_name = "AddPush";
 
-            private void _iceI_AddPush(SessionPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_AddPush(ISessionPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -521,7 +521,7 @@ namespace FootStone
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        SessionPushPrxHelper.write(ostr, iceP_playerPush);
+                        ISessionPushPrxHelper.write(ostr, iceP_playerPush);
                     });
             }
 
@@ -554,17 +554,17 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_Session_AddPush> begin_AddPush(SessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_ISession_AddPush> begin_AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_AddPush(playerPush, context, null, null, false);
             }
 
-            public Ice.AsyncResult begin_AddPush(SessionPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_AddPush(ISessionPushPrx playerPush, Ice.AsyncCallback callback, object cookie)
             {
                 return begin_AddPush(playerPush, new Ice.OptionalContext(), callback, cookie, false);
             }
 
-            public Ice.AsyncResult begin_AddPush(SessionPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
+            public Ice.AsyncResult begin_AddPush(ISessionPushPrx playerPush, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie)
             {
                 return begin_AddPush(playerPush, context, callback, cookie, false);
             }
@@ -575,10 +575,10 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Session_AddPush> begin_AddPush(SessionPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_ISession_AddPush> begin_AddPush(ISessionPushPrx iceP_playerPush, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Session_AddPush, object>(
-                    (Callback_Session_AddPush cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_ISession_AddPush, object>(
+                    (Callback_ISession_AddPush cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -590,7 +590,7 @@ namespace FootStone
                 return completed;
             }
 
-            public Ice.AsyncResult<Callback_Session_Destroy> begin_Destroy(Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_ISession_Destroy> begin_Destroy(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_Destroy(context, null, null, false);
             }
@@ -611,10 +611,10 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_Session_Destroy> begin_Destroy(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_ISession_Destroy> begin_Destroy(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_Session_Destroy, object>(
-                    (Callback_Session_Destroy cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_ISession_Destroy, object>(
+                    (Callback_ISession_Destroy cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -630,39 +630,39 @@ namespace FootStone
 
             #region Checked and unchecked cast operations
 
-            public static SessionPrx checkedCast(Ice.ObjectPrx b)
+            public static ISessionPrx checkedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPrx r = b as SessionPrx;
+                ISessionPrx r = b as ISessionPrx;
                 if((r == null) && b.ice_isA(ice_staticId()))
                 {
-                    SessionPrxHelper h = new SessionPrxHelper();
+                    ISessionPrxHelper h = new ISessionPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPrx r = b as SessionPrx;
+                ISessionPrx r = b as ISessionPrx;
                 if((r == null) && b.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionPrxHelper h = new SessionPrxHelper();
+                    ISessionPrxHelper h = new ISessionPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPrx checkedCast(Ice.ObjectPrx b, string f)
+            public static ISessionPrx checkedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
@@ -673,7 +673,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId()))
                     {
-                        SessionPrxHelper h = new SessionPrxHelper();
+                        ISessionPrxHelper h = new ISessionPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -684,7 +684,7 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
@@ -695,7 +695,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId(), ctx))
                     {
-                        SessionPrxHelper h = new SessionPrxHelper();
+                        ISessionPrxHelper h = new ISessionPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -706,37 +706,37 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionPrx uncheckedCast(Ice.ObjectPrx b)
+            public static ISessionPrx uncheckedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionPrx r = b as SessionPrx;
+                ISessionPrx r = b as ISessionPrx;
                 if(r == null)
                 {
-                    SessionPrxHelper h = new SessionPrxHelper();
+                    ISessionPrxHelper h = new ISessionPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            public static ISessionPrx uncheckedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
                     return null;
                 }
                 Ice.ObjectPrx bb = b.ice_facet(f);
-                SessionPrxHelper h = new SessionPrxHelper();
+                ISessionPrxHelper h = new ISessionPrxHelper();
                 h.iceCopyFrom(bb);
                 return h;
             }
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::Session",
+                "::FootStone::GrainInterfaces::ISession",
                 "::Ice::Object"
             };
 
@@ -749,17 +749,17 @@ namespace FootStone
 
             #region Marshaling support
 
-            public static void write(Ice.OutputStream ostr, SessionPrx v)
+            public static void write(Ice.OutputStream ostr, ISessionPrx v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static SessionPrx read(Ice.InputStream istr)
+            public static ISessionPrx read(Ice.InputStream istr)
             {
                 Ice.ObjectPrx proxy = istr.readProxy();
                 if(proxy != null)
                 {
-                    SessionPrxHelper result = new SessionPrxHelper();
+                    ISessionPrxHelper result = new ISessionPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -772,19 +772,19 @@ namespace FootStone
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         [_System.Serializable]
-        public sealed class SessionFactoryPrxHelper : Ice.ObjectPrxHelperBase, SessionFactoryPrx
+        public sealed class ISessionFactoryPrxHelper : Ice.ObjectPrxHelperBase, ISessionFactoryPrx
         {
-            public SessionFactoryPrxHelper()
+            public ISessionFactoryPrxHelper()
             {
             }
 
-            public SessionFactoryPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            public ISessionFactoryPrxHelper(_System.Runtime.Serialization.SerializationInfo info, _System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
             #region Synchronous operations
 
-            public SessionPrx CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext())
+            public ISessionPrx CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
@@ -812,15 +812,15 @@ namespace FootStone
 
             #region Async Task operations
 
-            public _System.Threading.Tasks.Task<SessionPrx> CreateSessionAsync(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task<ISessionPrx> CreateSessionAsync(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
                 return _iceI_CreateSessionAsync(name, password, context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task<SessionPrx> _iceI_CreateSessionAsync(string iceP_name, string iceP_password, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task<ISessionPrx> _iceI_CreateSessionAsync(string iceP_name, string iceP_password, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_CreateSession_name);
-                var completed = new IceInternal.OperationTaskCompletionCallback<SessionPrx>(progress, cancel);
+                var completed = new IceInternal.OperationTaskCompletionCallback<ISessionPrx>(progress, cancel);
                 _iceI_CreateSession(iceP_name, iceP_password, context, synchronous, completed);
                 return completed.Task;
             }
@@ -829,7 +829,7 @@ namespace FootStone
 
             private void _iceI_CreateSession(string iceP_name, string iceP_password, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<SessionPrx>(completed);
+                var outAsync = getOutgoingAsync<ISessionPrx>(completed);
                 outAsync.invoke(
                     _CreateSession_name,
                     Ice.OperationMode.Normal,
@@ -843,8 +843,8 @@ namespace FootStone
                     },
                     read: (Ice.InputStream istr) =>
                     {
-                        SessionPrx ret;
-                        ret = SessionPrxHelper.read(istr);
+                        ISessionPrx ret;
+                        ret = ISessionPrxHelper.read(istr);
                         return ret;
                     });
             }
@@ -878,7 +878,7 @@ namespace FootStone
 
             #region Asynchronous operations
 
-            public Ice.AsyncResult<Callback_SessionFactory_CreateSession> begin_CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_ISessionFactory_CreateSession> begin_CreateSession(string name, string password, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_CreateSession(name, password, context, null, null, false);
             }
@@ -893,18 +893,18 @@ namespace FootStone
                 return begin_CreateSession(name, password, context, callback, cookie, false);
             }
 
-            public SessionPrx end_CreateSession(Ice.AsyncResult asyncResult)
+            public ISessionPrx end_CreateSession(Ice.AsyncResult asyncResult)
             {
                 var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _CreateSession_name);
-                var outgoing_ = (IceInternal.OutgoingAsyncT<SessionPrx>)resultI_.OutgoingAsync;
+                var outgoing_ = (IceInternal.OutgoingAsyncT<ISessionPrx>)resultI_.OutgoingAsync;
                 return outgoing_.getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_SessionFactory_CreateSession> begin_CreateSession(string iceP_name, string iceP_password, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_ISessionFactory_CreateSession> begin_CreateSession(string iceP_name, string iceP_password, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
                 iceCheckAsyncTwowayOnly(_CreateSession_name);
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionFactory_CreateSession, SessionPrx>(
-                    (Callback_SessionFactory_CreateSession cb, SessionPrx ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_ISessionFactory_CreateSession, ISessionPrx>(
+                    (Callback_ISessionFactory_CreateSession cb, ISessionPrx ret) =>
                     {
                         if(cb != null)
                         {
@@ -916,7 +916,7 @@ namespace FootStone
                 return completed;
             }
 
-            public Ice.AsyncResult<Callback_SessionFactory_Shutdown> begin_Shutdown(Ice.OptionalContext context = new Ice.OptionalContext())
+            public Ice.AsyncResult<Callback_ISessionFactory_Shutdown> begin_Shutdown(Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 return begin_Shutdown(context, null, null, false);
             }
@@ -937,10 +937,10 @@ namespace FootStone
                 ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
             }
 
-            private Ice.AsyncResult<Callback_SessionFactory_Shutdown> begin_Shutdown(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+            private Ice.AsyncResult<Callback_ISessionFactory_Shutdown> begin_Shutdown(_System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_SessionFactory_Shutdown, object>(
-                    (Callback_SessionFactory_Shutdown cb, object ret) =>
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_ISessionFactory_Shutdown, object>(
+                    (Callback_ISessionFactory_Shutdown cb, object ret) =>
                     {
                         if(cb != null)
                         {
@@ -956,39 +956,39 @@ namespace FootStone
 
             #region Checked and unchecked cast operations
 
-            public static SessionFactoryPrx checkedCast(Ice.ObjectPrx b)
+            public static ISessionFactoryPrx checkedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionFactoryPrx r = b as SessionFactoryPrx;
+                ISessionFactoryPrx r = b as ISessionFactoryPrx;
                 if((r == null) && b.ice_isA(ice_staticId()))
                 {
-                    SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                    ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionFactoryPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionFactoryPrx checkedCast(Ice.ObjectPrx b, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionFactoryPrx r = b as SessionFactoryPrx;
+                ISessionFactoryPrx r = b as ISessionFactoryPrx;
                 if((r == null) && b.ice_isA(ice_staticId(), ctx))
                 {
-                    SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                    ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionFactoryPrx checkedCast(Ice.ObjectPrx b, string f)
+            public static ISessionFactoryPrx checkedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
@@ -999,7 +999,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId()))
                     {
-                        SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                        ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -1010,7 +1010,7 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionFactoryPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
+            public static ISessionFactoryPrx checkedCast(Ice.ObjectPrx b, string f, _System.Collections.Generic.Dictionary<string, string> ctx)
             {
                 if(b == null)
                 {
@@ -1021,7 +1021,7 @@ namespace FootStone
                 {
                     if(bb.ice_isA(ice_staticId(), ctx))
                     {
-                        SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                        ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                         h.iceCopyFrom(bb);
                         return h;
                     }
@@ -1032,37 +1032,37 @@ namespace FootStone
                 return null;
             }
 
-            public static SessionFactoryPrx uncheckedCast(Ice.ObjectPrx b)
+            public static ISessionFactoryPrx uncheckedCast(Ice.ObjectPrx b)
             {
                 if(b == null)
                 {
                     return null;
                 }
-                SessionFactoryPrx r = b as SessionFactoryPrx;
+                ISessionFactoryPrx r = b as ISessionFactoryPrx;
                 if(r == null)
                 {
-                    SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                    ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                     h.iceCopyFrom(b);
                     r = h;
                 }
                 return r;
             }
 
-            public static SessionFactoryPrx uncheckedCast(Ice.ObjectPrx b, string f)
+            public static ISessionFactoryPrx uncheckedCast(Ice.ObjectPrx b, string f)
             {
                 if(b == null)
                 {
                     return null;
                 }
                 Ice.ObjectPrx bb = b.ice_facet(f);
-                SessionFactoryPrxHelper h = new SessionFactoryPrxHelper();
+                ISessionFactoryPrxHelper h = new ISessionFactoryPrxHelper();
                 h.iceCopyFrom(bb);
                 return h;
             }
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::SessionFactory",
+                "::FootStone::GrainInterfaces::ISessionFactory",
                 "::Ice::Object"
             };
 
@@ -1075,17 +1075,17 @@ namespace FootStone
 
             #region Marshaling support
 
-            public static void write(Ice.OutputStream ostr, SessionFactoryPrx v)
+            public static void write(Ice.OutputStream ostr, ISessionFactoryPrx v)
             {
                 ostr.writeProxy(v);
             }
 
-            public static SessionFactoryPrx read(Ice.InputStream istr)
+            public static ISessionFactoryPrx read(Ice.InputStream istr)
             {
                 Ice.ObjectPrx proxy = istr.readProxy();
                 if(proxy != null)
                 {
-                    SessionFactoryPrxHelper result = new SessionFactoryPrxHelper();
+                    ISessionFactoryPrxHelper result = new ISessionFactoryPrxHelper();
                     result.iceCopyFrom(proxy);
                     return result;
                 }
@@ -1103,7 +1103,7 @@ namespace FootStone
     {
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public abstract class SessionPushDisp_ : Ice.ObjectImpl, SessionPush
+        public abstract class ISessionPushDisp_ : Ice.ObjectImpl, ISessionPush
         {
             #region Slice operations
 
@@ -1115,7 +1115,7 @@ namespace FootStone
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::SessionPush",
+                "::FootStone::GrainInterfaces::ISessionPush",
                 "::Ice::Object"
             };
 
@@ -1145,7 +1145,7 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_SessionDestroyed(SessionPush obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_SessionDestroyed(ISessionPush obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1204,11 +1204,11 @@ namespace FootStone
 
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public abstract class SessionDisp_ : Ice.ObjectImpl, Session
+        public abstract class ISessionDisp_ : Ice.ObjectImpl, ISession
         {
             #region Slice operations
 
-            public abstract _System.Threading.Tasks.Task AddPushAsync(SessionPushPrx playerPush, Ice.Current current = null);
+            public abstract _System.Threading.Tasks.Task AddPushAsync(ISessionPushPrx playerPush, Ice.Current current = null);
 
             public abstract void Destroy(Ice.Current current = null);
 
@@ -1218,7 +1218,7 @@ namespace FootStone
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::Session",
+                "::FootStone::GrainInterfaces::ISession",
                 "::Ice::Object"
             };
 
@@ -1248,19 +1248,19 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_AddPush(Session obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_AddPush(ISession obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
-                SessionPushPrx iceP_playerPush;
-                iceP_playerPush = SessionPushPrxHelper.read(istr);
+                ISessionPushPrx iceP_playerPush;
+                iceP_playerPush = ISessionPushPrxHelper.read(istr);
                 inS.endReadParams();
                 return inS.setResultTask(obj.AddPushAsync(iceP_playerPush, current));
             }
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_Destroy(Session obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_Destroy(ISession obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();
@@ -1324,11 +1324,11 @@ namespace FootStone
 
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public abstract class SessionFactoryDisp_ : Ice.ObjectImpl, SessionFactory
+        public abstract class ISessionFactoryDisp_ : Ice.ObjectImpl, ISessionFactory
         {
             #region Slice operations
 
-            public abstract SessionPrx CreateSession(string name, string password, Ice.Current current = null);
+            public abstract ISessionPrx CreateSession(string name, string password, Ice.Current current = null);
 
             public abstract void Shutdown(Ice.Current current = null);
 
@@ -1338,7 +1338,7 @@ namespace FootStone
 
             private static readonly string[] _ids =
             {
-                "::FootStone::GrainInterfaces::SessionFactory",
+                "::FootStone::GrainInterfaces::ISessionFactory",
                 "::Ice::Object"
             };
 
@@ -1368,7 +1368,7 @@ namespace FootStone
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_CreateSession(SessionFactory obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_CreateSession(ISessionFactory obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 var istr = inS.startReadParams();
@@ -1379,14 +1379,14 @@ namespace FootStone
                 inS.endReadParams();
                 var ret = obj.CreateSession(iceP_name, iceP_password, current);
                 var ostr = inS.startWriteParams();
-                SessionPrxHelper.write(ostr, ret);
+                ISessionPrxHelper.write(ostr, ret);
                 inS.endWriteParams(ostr);
                 return inS.setResult(ostr);
             }
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static _System.Threading.Tasks.Task<Ice.OutputStream>
-            iceD_Shutdown(SessionFactory obj, IceInternal.Incoming inS, Ice.Current current)
+            iceD_Shutdown(ISessionFactory obj, IceInternal.Incoming inS, Ice.Current current)
             {
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, current.mode);
                 inS.readEmptyParams();

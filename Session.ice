@@ -5,6 +5,7 @@
 //
 // **********************************************************************
 #pragma once
+
 #include "Player.ice"
 
 
@@ -13,23 +14,23 @@ module FootStone
 	module GrainInterfaces
 	{   
 		
-		interface SessionPush
+		interface ISessionPush
 		{
 			void SessionDestroyed();
 		}
    
-		interface Session
+		interface ISession
 		{      
 		
-		   ["amd"] void AddPush(SessionPush* playerPush);
+		   ["amd"] void AddPush(ISessionPush* playerPush);
 		
 			void Destroy();
 		}  
 
-		interface SessionFactory
+		interface ISessionFactory
 		{
 		   
-			Session* CreateSession(string name,string password);
+			ISession* CreateSession(string name,string password);
 
 			void Shutdown();
 		}
