@@ -244,6 +244,9 @@ namespace FootStone
             public int level;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public string zoneId;
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             public RoleMaster roleMaster;
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
@@ -260,17 +263,19 @@ namespace FootStone
             {
                 this.id = "";
                 this.name = "";
+                this.zoneId = "";
                 this.roleMaster = new RoleMaster();
                 ice_initialize();
             }
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            public PlayerInfo(string id, string name, int serverId, int level, RoleMaster roleMaster, _System.Collections.Generic.List<Item> items)
+            public PlayerInfo(string id, string name, int serverId, int level, string zoneId, RoleMaster roleMaster, _System.Collections.Generic.List<Item> items)
             {
                 this.id = id;
                 this.name = name;
                 this.serverId = serverId;
                 this.level = level;
+                this.zoneId = zoneId;
                 this.roleMaster = roleMaster;
                 this.items = items;
                 ice_initialize();
@@ -299,6 +304,7 @@ namespace FootStone
                 IceInternal.HashUtil.hashAdd(ref h_, name);
                 IceInternal.HashUtil.hashAdd(ref h_, serverId);
                 IceInternal.HashUtil.hashAdd(ref h_, level);
+                IceInternal.HashUtil.hashAdd(ref h_, zoneId);
                 IceInternal.HashUtil.hashAdd(ref h_, roleMaster);
                 IceInternal.HashUtil.hashAdd(ref h_, items);
                 return h_;
@@ -356,6 +362,20 @@ namespace FootStone
                 {
                     return false;
                 }
+                if(this.zoneId == null)
+                {
+                    if(o.zoneId != null)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if(!this.zoneId.Equals(o.zoneId))
+                    {
+                        return false;
+                    }
+                }
                 if(!this.roleMaster.Equals(o.roleMaster))
                 {
                     return false;
@@ -404,6 +424,7 @@ namespace FootStone
                 ostr.writeString(this.name);
                 ostr.writeInt(this.serverId);
                 ostr.writeInt(this.level);
+                ostr.writeString(this.zoneId);
                 this.roleMaster.ice_writeMembers(ostr);
                 ItemListHelper.write(ostr, this.items);
             }
@@ -415,6 +436,7 @@ namespace FootStone
                 this.name = istr.readString();
                 this.serverId = istr.readInt();
                 this.level = istr.readInt();
+                this.zoneId = istr.readString();
                 this.roleMaster.ice_readMembers(istr);
                 this.items = ItemListHelper.read(istr);
             }

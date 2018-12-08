@@ -32,6 +32,7 @@ module FootStone
 			int    serverId;
 			int    level;
 			
+			string zoneId;
 			RoleMaster roleMaster;
 			ItemList items;
 		};
