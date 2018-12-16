@@ -31,6 +31,169 @@ namespace FootStone
 {
     namespace GrainInterfaces
     {
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+        [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+        [_System.Serializable]
+        public partial class EndPointZone : _System.ICloneable
+        {
+            #region Slice data members
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public string ip;
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public int port;
+
+            #endregion
+
+            partial void ice_initialize();
+
+            #region Constructors
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public EndPointZone()
+            {
+                this.ip = "";
+                ice_initialize();
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public EndPointZone(string ip, int port)
+            {
+                this.ip = ip;
+                this.port = port;
+                ice_initialize();
+            }
+
+            #endregion
+
+            #region ICloneable members
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public object Clone()
+            {
+                return MemberwiseClone();
+            }
+
+            #endregion
+
+            #region Object members
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public override int GetHashCode()
+            {
+                int h_ = 5381;
+                IceInternal.HashUtil.hashAdd(ref h_, "::FootStone::GrainInterfaces::EndPointZone");
+                IceInternal.HashUtil.hashAdd(ref h_, ip);
+                IceInternal.HashUtil.hashAdd(ref h_, port);
+                return h_;
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public override bool Equals(object other)
+            {
+                if(object.ReferenceEquals(this, other))
+                {
+                    return true;
+                }
+                if(other == null)
+                {
+                    return false;
+                }
+                if(GetType() != other.GetType())
+                {
+                    return false;
+                }
+                EndPointZone o = (EndPointZone)other;
+                if(this.ip == null)
+                {
+                    if(o.ip != null)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if(!this.ip.Equals(o.ip))
+                    {
+                        return false;
+                    }
+                }
+                if(!this.port.Equals(o.port))
+                {
+                    return false;
+                }
+                return true;
+            }
+
+            #endregion
+
+            #region Comparison members
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public static bool operator==(EndPointZone lhs, EndPointZone rhs)
+            {
+                return Equals(lhs, rhs);
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public static bool operator!=(EndPointZone lhs, EndPointZone rhs)
+            {
+                return !Equals(lhs, rhs);
+            }
+
+            #endregion
+
+            #region Marshaling support
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public void ice_writeMembers(Ice.OutputStream ostr)
+            {
+                ostr.writeString(this.ip);
+                ostr.writeInt(this.port);
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public void ice_readMembers(Ice.InputStream istr)
+            {
+                this.ip = istr.readString();
+                this.port = istr.readInt();
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public static void ice_write(Ice.OutputStream ostr, EndPointZone v)
+            {
+                if(v == null)
+                {
+                    _nullMarshalValue.ice_writeMembers(ostr);
+                }
+                else
+                {
+                    v.ice_writeMembers(ostr);
+                }
+            }
+
+            [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
+            public static EndPointZone ice_read(Ice.InputStream istr)
+            {
+                var v = new EndPointZone();
+                v.ice_readMembers(istr);
+                return v;
+            }
+
+            private static readonly EndPointZone _nullMarshalValue = new EndPointZone();
+
+            #endregion
+        }
+
         [_System.Runtime.InteropServices.ComVisible(false)]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
@@ -71,7 +234,7 @@ namespace FootStone
         public delegate void Callback_IZonePush_ZoneSync();
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-        public delegate void Callback_IZone_PlayerEnter();
+        public delegate void Callback_IZone_PlayerEnter(EndPointZone ret);
 
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public delegate void Callback_IZone_Move();
@@ -101,9 +264,9 @@ namespace FootStone
         [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
         public interface IZonePrx : Ice.ObjectPrx
         {
-            void PlayerEnter(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext());
+            EndPointZone PlayerEnter(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext());
 
-            _System.Threading.Tasks.Task PlayerEnterAsync(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
+            _System.Threading.Tasks.Task<EndPointZone> PlayerEnterAsync(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken());
 
             Ice.AsyncResult<Callback_IZone_PlayerEnter> begin_PlayerEnter(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext());
 
@@ -111,7 +274,7 @@ namespace FootStone
 
             Ice.AsyncResult begin_PlayerEnter(string zoneId, Ice.OptionalContext context, Ice.AsyncCallback callback, object cookie);
 
-            void end_PlayerEnter(Ice.AsyncResult asyncResult);
+            EndPointZone end_PlayerEnter(Ice.AsyncResult asyncResult);
 
             void Move(byte[] data, Ice.OptionalContext context = new Ice.OptionalContext());
 
@@ -143,7 +306,7 @@ namespace FootStone
         public interface IZoneOperations_
         {
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
-            void PlayerEnter(string zoneId, Ice.Current current = null);
+            _System.Threading.Tasks.Task<EndPointZone> PlayerEnterAsync(string zoneId, Ice.Current current = null);
 
             [_System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.1")]
             void Move(byte[] data, Ice.Current current = null);
@@ -441,11 +604,11 @@ namespace FootStone
                 }
             }
 
-            public void PlayerEnter(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext())
+            public EndPointZone PlayerEnter(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext())
             {
                 try
                 {
-                    _iceI_PlayerEnterAsync(zoneId, context, null, _System.Threading.CancellationToken.None, true).Wait();
+                    return _iceI_PlayerEnterAsync(zoneId, context, null, _System.Threading.CancellationToken.None, true).Result;
                 }
                 catch(_System.AggregateException ex_)
                 {
@@ -486,14 +649,15 @@ namespace FootStone
                     });
             }
 
-            public _System.Threading.Tasks.Task PlayerEnterAsync(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
+            public _System.Threading.Tasks.Task<EndPointZone> PlayerEnterAsync(string zoneId, Ice.OptionalContext context = new Ice.OptionalContext(), _System.IProgress<bool> progress = null, _System.Threading.CancellationToken cancel = new _System.Threading.CancellationToken())
             {
                 return _iceI_PlayerEnterAsync(zoneId, context, progress, cancel, false);
             }
 
-            private _System.Threading.Tasks.Task _iceI_PlayerEnterAsync(string iceP_zoneId, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
+            private _System.Threading.Tasks.Task<EndPointZone> _iceI_PlayerEnterAsync(string iceP_zoneId, Ice.OptionalContext context, _System.IProgress<bool> progress, _System.Threading.CancellationToken cancel, bool synchronous)
             {
-                var completed = new IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+                iceCheckTwowayOnly(_PlayerEnter_name);
+                var completed = new IceInternal.OperationTaskCompletionCallback<EndPointZone>(progress, cancel);
                 _iceI_PlayerEnter(iceP_zoneId, context, synchronous, completed);
                 return completed.Task;
             }
@@ -502,7 +666,7 @@ namespace FootStone
 
             private void _iceI_PlayerEnter(string iceP_zoneId, _System.Collections.Generic.Dictionary<string, string> context, bool synchronous, IceInternal.OutgoingAsyncCompletionCallback completed)
             {
-                var outAsync = getOutgoingAsync<object>(completed);
+                var outAsync = getOutgoingAsync<EndPointZone>(completed);
                 outAsync.invoke(
                     _PlayerEnter_name,
                     Ice.OperationMode.Normal,
@@ -512,6 +676,12 @@ namespace FootStone
                     write: (Ice.OutputStream ostr) =>
                     {
                         ostr.writeString(iceP_zoneId);
+                    },
+                    read: (Ice.InputStream istr) =>
+                    {
+                        EndPointZone ret = null;
+                        ret = EndPointZone.ice_read(istr);
+                        return ret;
                     });
             }
 
@@ -570,20 +740,22 @@ namespace FootStone
                 return begin_PlayerEnter(zoneId, context, callback, cookie, false);
             }
 
-            public void end_PlayerEnter(Ice.AsyncResult asyncResult)
+            public EndPointZone end_PlayerEnter(Ice.AsyncResult asyncResult)
             {
                 var resultI_ = IceInternal.AsyncResultI.check(asyncResult, this, _PlayerEnter_name);
-                ((IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+                var outgoing_ = (IceInternal.OutgoingAsyncT<EndPointZone>)resultI_.OutgoingAsync;
+                return outgoing_.getResult(resultI_.wait());
             }
 
             private Ice.AsyncResult<Callback_IZone_PlayerEnter> begin_PlayerEnter(string iceP_zoneId, _System.Collections.Generic.Dictionary<string, string> context, Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
             {
-                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_IZone_PlayerEnter, object>(
-                    (Callback_IZone_PlayerEnter cb, object ret) =>
+                iceCheckAsyncTwowayOnly(_PlayerEnter_name);
+                var completed = new IceInternal.OperationAsyncResultCompletionCallback<Callback_IZone_PlayerEnter, EndPointZone>(
+                    (Callback_IZone_PlayerEnter cb, EndPointZone ret) =>
                     {
                         if(cb != null)
                         {
-                            cb.Invoke();
+                            cb.Invoke(ret);
                         }
                     },
                     this, _PlayerEnter_name, cookie, completedCallback);
@@ -850,7 +1022,7 @@ namespace FootStone
         {
             #region Slice operations
 
-            public abstract void PlayerEnter(string zoneId, Ice.Current current = null);
+            public abstract _System.Threading.Tasks.Task<EndPointZone> PlayerEnterAsync(string zoneId, Ice.Current current = null);
 
             public abstract void Move(byte[] data, Ice.Current current = null);
 
@@ -897,8 +1069,11 @@ namespace FootStone
                 string iceP_zoneId;
                 iceP_zoneId = istr.readString();
                 inS.endReadParams();
-                obj.PlayerEnter(iceP_zoneId, current);
-                return inS.setResult(inS.writeEmptyParams());
+                return inS.setResultTask<EndPointZone>(obj.PlayerEnterAsync(iceP_zoneId, current),
+                    (ostr, ret) =>
+                    {
+                        EndPointZone.ice_write(ostr, ret);
+                    });
             }
 
             [_System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]

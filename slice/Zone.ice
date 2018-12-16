@@ -15,6 +15,12 @@ module FootStone
 	{   
 		sequence<byte> Bytes;
 
+		struct EndPointZone
+		{
+			string ip;
+			int    port;
+		}
+
 		interface IZonePush
 		{
 			void ZoneSync(Bytes data);
@@ -22,7 +28,7 @@ module FootStone
    
 		interface IZone
 		{ 
-		    void PlayerEnter(string zoneId);
+		    ["amd"]EndPointZone PlayerEnter(string zoneId);
 
 		    void Move(Bytes data);
 		
